@@ -63,12 +63,24 @@ Esse projeto consiste em um aplicativo que irá fazer a conexão entre clientes 
    - Visualização de serviços programados.
 
 ## Personas e Jornadas
-- **Roberto** (Cliente): Pretende contratar serviços domésticos de forma rápida e segura. (podem mudar os nomes se quiserem, ok?????????)
-- **Juliana** (Empresa): Quer ampliar sua base de clientes e otimizar a gestão dos serviços.
+- **Roberto** (Cliente): 35 anos, gerente de projetos, mora sozinho e precisa de ajuda com limpeza semanal. Pretende contratar serviços domésticos de forma rápida e segura. (podem mudar os nomes se quiserem, ok?????????)
+    - Necessidade: contratar serviços confiáveis semanalmente.
+    - Motivação: Ter mais tempo para o lazer.
+- **Juliana** (Empresa): 47 anos, proprietária de uma empresa de limpeza.
+    - Necessidade: Quer ampliar sua base de clientes e otimizar a gestão dos serviços.
+    - Motivação: Crescer no mercado e ter uma plataforma confiável para captar clientes.
 
 ### Jornada do Usuário
-- **Cliente**: Busca e agenda serviços.
-- **Empresa**: Cadastra serviços e gerencia agendamentos.
+- **Cliente**: Entra no app --> Pesquisa por "faxina semanal" --> Seleciona um fornecedor --> Agenda o serviço.
+- **Empresa**: Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos.
+
+
+
+
+
+
+
+### (Para a segunda Etapa do Projeto, não é para agora)
 
 ## Protótipo
 Um protótipo funcional foi desenvolvido para validar a navegação e fluxo de uso do aplicativo. (??????, aqui só coloquei uma idéia, podem melhorar)
@@ -79,8 +91,20 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Listagem e busca de serviços.
 - Agendamento e gerenciamento de serviços.
 
+## Fluxo de Desenvolvimento
+- Definir o modelo de dados (usuários, serviços, agendamentos).
+- Implementar endpoints básicos para cadastro/login, listagem e agendamento de serviços.
+- Integrar o backend ao frontend.
+- Realizar testes com o protótipo e ajustar com base no feedback.
+
+
+
+
+
+
+
 ## Contribuição
-Contribuições são bem-vindas! Siga as etapas abaixo para colaborar:
+Sigam algumas das etapas (dicas) abaixo para colaborar:
 1. Faça um fork do repositório.
 2. Crie uma nova branch para suas alterações.
 3. Envie um pull request com suas modificações.
