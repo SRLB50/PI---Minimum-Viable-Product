@@ -1,7 +1,7 @@
 # PROJETO INTEGRADOR---Minimum-Viable-Product
 Alocação de serviços domésticos
 
-<p align="center">Repertório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024.</p>
+<p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024.</p>
 
 # 1ª Entrega: Proposta de produto mínimo viável em Alocação de serviços domésticos.
 
@@ -19,10 +19,10 @@ Alocação de serviços domésticos
 
 ## Resumo
 
-# Alocação de Serviços Domésticos
+# Alocação de Serviços Domésticos: CasaCuida
 
 ## Visão do Produto
-Esse projeto consiste em um aplicativo que irá fazer a conexão entre clientes e os diversos tipos de fornecedores de serviços domésticos. A plataforma irá oferecer uma experiência simples e segura para contratar ou oferecer serviços como limpeza em geral, jardinagem, entre outros. 
+Esse projeto consiste em um aplicativo, o CasaCuida, que irá fazer a conexão entre clientes e os diversos tipos de fornecedores de serviços domésticos. A plataforma irá oferecer uma experiência simples e segura para contratar ou oferecer serviços como limpeza em geral, jardinagem, entre outros. 
 
 ### **Diferenciais e Inovações**:
 - Sistema de avaliação detalhada.
@@ -33,7 +33,7 @@ Esse projeto consiste em um aplicativo que irá fazer a conexão entre clientes 
 ## Funcionalidades
 ### **Usuário Cliente**:
 - Cadastro e Login.
-- Navegação na Home para listar e buscar os serviços oferecidos.
+- Navegação na Home da CasaCuida para listar e buscar os serviços oferecidos.
 - Agendamento de serviços.
 - Avaliação dos serviços contratados e dos clientes.
 
