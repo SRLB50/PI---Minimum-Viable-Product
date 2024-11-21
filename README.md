@@ -89,9 +89,9 @@ ________________________________________________________________________________
 <p align="justify">Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
 Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.</p>
 <p align="justify">O protótipo pode ser testado com um grupo de usuários representativos (clientes e fornecedores), permitindo:
-•	**Identificar pontos de fricção na navegação**: Feedbacks indicaram que o fluxo de agendamento poderia ser mais simplificado, levando à revisão do design.
-•	**Avaliar a clareza das telas e funcionalidades**: Certificamos que os usuários conseguiam completar suas tarefas principais sem necessidade de instruções adicionais.
-•	**Observar a satisfação geral**: A experiência foi avaliada positivamente por 85% dos participantes, validando a abordagem centrada no usuário.
+- **Identificar pontos de fricção na navegação**: Feedbacks indicaram que o fluxo de agendamento poderia ser mais simplificado, levando à revisão do design.
+- **Avaliar a clareza das telas e funcionalidades**: Certificamos que os usuários conseguiam completar suas tarefas principais sem necessidade de instruções adicionais.
+- **Observar a satisfação geral**: A experiência foi avaliada positivamente por 85% dos participantes, validando a abordagem centrada no usuário.
 Esses testes não apenas confirmaram a eficiência da navegação proposta, mas também forneceram insights valiosos para aprimoramentos antes da implementação final. Com isso, garantimos uma base sólida para o desenvolvimento do CasaCuida.</p>
 
 
