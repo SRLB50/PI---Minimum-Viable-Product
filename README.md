@@ -84,6 +84,8 @@ Esse projeto consiste em um aplicativo, o CasaCuida, que irá fazer a conexão e
 
 
 
+______________________________________________________________________________________________________________________________________________________
+
 ### (Para a segunda Etapa do Projeto, não é para agora)
 
 ## Protótipo para validar a navegação do produto proposto
@@ -107,9 +109,6 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Implementar endpoints básicos para cadastro/login, listagem e agendamento de serviços.
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
-
-
-
 
 
 
