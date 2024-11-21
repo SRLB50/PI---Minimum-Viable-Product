@@ -90,8 +90,8 @@ ________________________________________________________________________________
 
 ## Protótipo para validar a navegação do produto proposto
 
-Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
-Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.
+<p>Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
+Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.</p>
 O protótipo pode ser testado com um grupo de usuários representativos (clientes e fornecedores), permitindo:
 •	Identificar pontos de fricção na navegação: Feedbacks indicaram que o fluxo de agendamento poderia ser mais simplificado, levando à revisão do design.
 •	Avaliar a clareza das telas e funcionalidades: Certificamos que os usuários conseguiam completar suas tarefas principais sem necessidade de instruções adicionais.
