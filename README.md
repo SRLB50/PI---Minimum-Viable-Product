@@ -22,7 +22,7 @@ Alocação de serviços domésticos: "CasaCuida".
 # Alocação de Serviços Domésticos: CasaCuida
 
 ## Visão do Produto
-Esse projeto consiste em um aplicativo, o CasaCuida, que irá fazer a conexão entre clientes e os diversos tipos de fornecedores de serviços domésticos. A plataforma irá oferecer uma experiência simples e segura para contratar ou oferecer serviços como limpeza em geral, jardinagem, entre outros. 
+Esse projeto consiste em um aplicativo, o CasaCuida, que irá fazer a conexão entre clientes e os diversos tipos de fornecedores de serviços domésticos. A plataforma irá oferecer uma experiência simples e segura para contratar ou oferecer serviços como limpeza em geral, entre outros. 
 
 ### **Diferenciais e Inovações**:
 - Sistema de avaliação detalhada.
@@ -90,8 +90,9 @@ ________________________________________________________________________________
 
 ## Protótipo para validar a navegação do produto proposto
 
-Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma. Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.
-O protótipo foi testado com um grupo de usuários representativos (clientes e fornecedores), permitindo:
+<p align="center">Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
+Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.</p>
+O protótipo pode ser testado com um grupo de usuários representativos (clientes e fornecedores), permitindo:
 •	Identificar pontos de fricção na navegação: Feedbacks indicaram que o fluxo de agendamento poderia ser mais simplificado, levando à revisão do design.
 •	Avaliar a clareza das telas e funcionalidades: Certificamos que os usuários conseguiam completar suas tarefas principais sem necessidade de instruções adicionais.
 •	Observar a satisfação geral: A experiência foi avaliada positivamente por 85% dos participantes, validando a abordagem centrada no usuário.
