@@ -23,19 +23,18 @@ Alocação de serviços domésticos: "CasaCuida".
 # Alocação de Serviços Domésticos: CasaCuida
 
 ## Visão do Produto
-<p align="justify">O CasaCuida é um aplicativo que conecta clientes a fornecedores de serviços domésticos, oferecendo uma solução prática, segura e centralizada. Ele resolve a dificuldade de encontrar profissionais qualificados e gerenciar comunicação, agendamento e pagamento. Entre os diferenciais estão interface intuitiva, sistema de avaliação, pagamentos seguros e escalabilidade em nuvem, promovendo confiança e eficiência no mercado de serviços pessoais.</p>
+<p align="justify">O CasaCuida é um aplicativo que conecta clientes a fornecedores de serviços domésticos, oferecendo uma solução prática, segura e centralizada. Ele resolve a dificuldade de encontrar profissionais qualificados e gerenciar comunicação, agendamento e pagamento diretamente com o fornecedor do serviço contratado. Entre os diferenciais estão interface intuitiva, sistema de avaliação e escalabilidade em nuvem, promovendo confiança e eficiência no mercado de serviços pessoais.</p>
 
 ## Stakeholders do CasaCuida:
 
 Clientes finais (contratam serviços), fornecedores (ampliam visibilidade), equipe de desenvolvimento, investidores e administradores da plataforma.
 Diferenciais do CasaCuida:
 1. Especialização: Foco exclusivo em serviços domésticos.
-2. Usabilidade: Interface intuitiva, suporte multilinguagem e navegação inclusiva.
+2. Usabilidade: Interface intuitiva e navegação inclusiva.
 3. Conexão local: Promove economia de bairro com recomendações personalizadas.
-4. Modelo sustentável: Taxas reduzidas ou assinatura em vez de altas comissões.
-5. Segurança: Verificação de fornecedores, pagamentos seguros e seguros para serviços.
+4. Modelo sustentável: Taxas reduzidas ou assinatura diretamente com o fornecedor.
+5. Segurança: Verificação de antecedentes de fornecedores.
 6. Funcionalidades exclusivas: Agendamento recorrente, painel de gestão para fornecedores e sistema de feedbacks.
-7. Apoio ao fornecedor: Cursos de capacitação e certificações.
 
 Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e inovadora no mercado de serviços domésticos.
 
@@ -43,7 +42,7 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 - Sistema de avaliação detalhada.
 - Recomendações inteligentes baseadas no histórico do usuário.
 - Planos de assinatura para empresas com funcionalidades exclusivas.
-- Suporte para contratos e garantias direto na plataforma.
+- Suporte para contratos e garantias direto com o fornecedor.
 
 ## Funcionalidades
 ### **Usuário Cliente**:
