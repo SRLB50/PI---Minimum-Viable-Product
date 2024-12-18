@@ -89,24 +89,14 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 - **Cliente**: Entra no app --> Pesquisa por "faxina semanal" --> Seleciona um fornecedor --> Agenda o serviço.
 - **Empresa**: Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos.
 
-
-
-
-
-
-
-______________________________________________________________________________________________________________________________________________________
-
-### (Para a segunda Etapa do Projeto, não é para agora)
-
 ## Protótipo para validar a navegação do produto proposto
 
 <p align="justify">Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
 Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.</p>
 <p align="justify">O protótipo pode ser testado com um grupo de usuários representativos (clientes e fornecedores), permitindo:
 
-- **Identificar pontos de fricção na navegação**: Feedbacks indicaram que o fluxo de agendamento poderia ser mais simplificado, levando à revisão do design.
-- **Avaliar a clareza das telas e funcionalidades**: Certificamos que os usuários conseguiam completar suas tarefas principais sem necessidade de instruções adicionais.
+- **Identificar pontos de fricção na navegação**: Feedbacks que indiquem que o fluxo de agendamento pode ser mais simplificado, levando à revisão do design.
+- **Avaliar a clareza das telas e funcionalidades**: Certificação de que os usuários consigam completar suas tarefas principais sem necessidade de instruções adicionais.
 - **Observar a satisfação geral**: A experiência foi avaliada positivamente por 85% dos participantes, validando a abordagem centrada no usuário.
 Esses testes não apenas confirmaram a eficiência da navegação proposta, mas também forneceram insights valiosos para aprimoramentos antes da implementação final. Com isso, garantimos uma base sólida para o desenvolvimento do CasaCuida.</p>
 
@@ -114,7 +104,7 @@ Esses testes não apenas confirmaram a eficiência da navegação proposta, mas 
 A primeira versão do MVP foca nas funcionalidades principais:
 - Cadastro/Login de usuários.
 - Listagem e busca de serviços.
-- Agendamento e gerenciamento de serviços.
+- Agendamento/Cancelamento e gerenciamento de serviços.
 
 ## Fluxo de Desenvolvimento
 - Definir o modelo de dados (usuários, serviços, agendamentos).
@@ -122,11 +112,9 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
 
-
-
-
+______________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Contribuição
-Sigam algumas das etapas (dicas) abaixo para colaborar:
+Sigam algumas sugestões das etapas (dicas) abaixo para colaborar:
 1. Faça um fork do repositório.
 2. Crie uma nova branch para suas alterações.
 3. Envie um pull request com suas modificações.
