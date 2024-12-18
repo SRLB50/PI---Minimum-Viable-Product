@@ -112,9 +112,15 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________
 ## Contribuição
 Sigam algumas sugestões das etapas (dicas) abaixo para colaborar:
 1. Faça um fork do repositório.
 2. Crie uma nova branch para suas alterações.
 3. Envie um pull request com suas modificações.
+
+_____________________________________________________________________________________________________________________________________
+
+[Link do FIGMA]
+
+<li><strong>Para baixar este projeto no <a href="https://github.com/SRLB50/PI---Minimun-Viable-Product">Github</a></strong>, https://github.com/SRLB50/PI---Minimum-Viable-Product</li>
