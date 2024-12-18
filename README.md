@@ -3,7 +3,7 @@ Alocação de serviços domésticos: "CasaCuida".
 
 <p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024. Professor: Enoque Leal.</p>
 
-# 1ª Entrega: Proposta de produto mínimo viável em Alocação de serviços domésticos.
+# 1ª e 2ª Entrega: Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
 
 ## Integrantes 
 <ul>
@@ -17,12 +17,12 @@ Alocação de serviços domésticos: "CasaCuida".
     <li>SANDRA REGINA LOPES BALBINO</li>
 </ul>
 
-## Resumo
+## Resumo:
 <p align="justify">Desenvolvemos o CasaCuida, um aplicativo inovador de alocação de serviços domésticos que conecta clientes a fornecedores de serviços como limpeza e manutenção. O app oferece uma experiência prática e eficiente, com funcionalidades como avaliação detalhada, recomendações inteligentes e suporte a contratos digitais. Enquanto clientes encontram serviços de qualidade rapidamente, fornecedores podem gerenciar suas ofertas de forma otimizada. O projeto foi criado como um MVP, focado na validação das funcionalidades essenciais e na experiência do usuário</p>
 
 # Alocação de Serviços Domésticos: CasaCuida
 
-## Visão do Produto
+## Visão do Produto:
 <p align="justify">O CasaCuida é um aplicativo que conecta clientes a fornecedores de serviços domésticos, oferecendo uma solução prática, segura e centralizada. Ele resolve a dificuldade de encontrar profissionais qualificados e gerenciar comunicação, agendamento e pagamento diretamente com o fornecedor do serviço contratado. Entre os diferenciais estão interface intuitiva, sistema de avaliação e escalabilidade em nuvem, promovendo confiança e eficiência no mercado de serviços pessoais.</p>
 
 ## Stakeholders do CasaCuida:
@@ -32,7 +32,7 @@ Diferenciais do CasaCuida:
 1. Especialização: Foco exclusivo em serviços domésticos.
 2. Usabilidade: Interface intuitiva e navegação inclusiva.
 3. Conexão local: Promove economia de bairro com recomendações personalizadas.
-4. Modelo sustentável: Taxas reduzidas ou assinatura diretamente com o fornecedor.
+4. Modelo sustentável: Taxas reduzidas e/ou assinatura diretamente com o fornecedor.
 5. Segurança: Verificação de antecedentes de fornecedores.
 6. Funcionalidades exclusivas: Agendamento recorrente, painel de gestão para fornecedores e sistema de feedbacks.
 
@@ -76,20 +76,23 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 5. **Tela Serviços Agendados**:
    - Visualização de serviços programados.
 
-## Personas e Jornadas
+## Desenvolvimento de Personas e Jornada de usuários:
 
-- **Roberto** (Cliente): 35 anos, gerente de projetos, mora sozinho e precisa de ajuda com limpeza semanal. Pretende contratar serviços domésticos de forma rápida e segura. (podem mudar os nomes se quiserem, ok?????????)
+- **Roberto da Silva** (Cliente): 35 anos, gerente de projetos, solteiro, mora sozinho em apartamento precisa de ajuda com limpeza semanal. Alta exigência por serviços de qualidade, rotina agitada. Pretende contratar serviços domésticos de forma rápida e segura.
     - Necessidade: contratar serviços confiáveis semanalmente.
     - Motivação: Ter mais tempo para o lazer.
-- **Juliana** (Empresa): 47 anos, proprietária de uma empresa de limpeza.
+- **Juliana Trindade** (Empresa): 47 anos, casada, mãe de dois filhos, é proprietária de uma empresa de limpeza.
     - Necessidade: Quer ampliar sua base de clientes e otimizar a gestão dos serviços.
     - Motivação: Crescer no mercado e ter uma plataforma confiável para captar clientes.
+- **Maria Silva** (Âutônoma): 35 anos, solteira, mãe de três filhos, trabalha como diarista a 10 anos, depende da renda de seus serviços para sustentar sua família. Ela é dedicada, pontual e conhecida entre seus clientes pela atenção aos detalhes. No entanto, tem dificuldade em atrair novos clientes por falta de visibilidade e contatos. Seu acesso à tecnologia é limitado, mas ela utiliza o celular diariamente para WhatsApp e redes sociais.
+    - Necessidade: Ampliar base de clientes para garantir estabilidade financeira, agendar e organizar melhor os serviços, evitando conflitos de horários. Receber pagamentos de forma prática e segura.
+    - Motivação: Usar avaliações no app para se destacar e fortalecer sua credibilidade no mercado.
 
 ### Jornada do Usuário
-- **Cliente**: Entra no app --> Pesquisa por "faxina semanal" --> Seleciona um fornecedor --> Agenda o serviço.
-- **Empresa**: Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos.
+- **Cliente**: Entra no app --> Pesquisa por "serviços de faxina" --> Faz cadastro --> Seleciona o profissional com base em avaliações e preço do serviço --> Agenda o serviço.
+- **Empresa**: Entra no app --> Faz Cadastro --> Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos --> Confirma solicitações de serviço --> Realiza o serviço --> Recebe pagamento diretamente do cliente --> Verifica avaliações e responde a comentários.
 
-## Protótipo para validar a navegação do produto proposto
+## Protótipo para validar a navegação do produto proposto:
 
 <p align="justify">Para validar a navegação e a experiência do usuário, foi desenvolvido um protótipo interativo de alta fidelidade utilizando a ferramenta Figma.
 Esse protótipo simula as principais funcionalidades do aplicativo, como cadastro/login, pesquisa de serviços, agendamento, pagamento e avaliação.</p>
@@ -123,4 +126,4 @@ ________________________________________________________________________________
 
 [Link do FIGMA]
 
-<li><strong>Para baixar este projeto no <a href="https://github.com/SRLB50/PI---Minimun-Viable-Product">Github</a></strong>, https://github.com/SRLB50/PI---Minimum-Viable-Product</li>
+<li><strong>Para baixar este projeto no <a href="https://github.com/SRLB50/PI---Minimum-Viable-Product">Github</a></strong>, https://github.com/SRLB50/PI---Minimum-Viable-Product</li>
