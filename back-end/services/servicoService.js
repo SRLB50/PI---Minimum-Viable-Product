@@ -17,8 +17,13 @@ class Service {
         })
     }
 
-    async post(){
-
+    async post(titulo, descricao, valor, idUser){
+        return await models.Servico.create({
+            titulo: titulo, 
+            descricao: descricao, 
+            valor: Number(valor), 
+            empresa_id : idUser
+        })
     }
 
     async remove(){
@@ -40,9 +45,7 @@ const getService = async (request, reply) => {
 const getServiceById = async (request, reply) => {
     
     const {idUser} = request.query
-    console.log("PARAMETROS")
-    console.log(request.query)
-    console.log(request)
+    
     if (['', null, undefined].includes(idUser)) {
         reply.status(400).send({error: 'Envie o ID do usuário para buscar os serviços'})
     }
