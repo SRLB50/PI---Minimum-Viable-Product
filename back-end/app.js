@@ -14,6 +14,7 @@ models.sequelize.sync().then(() => {
   console.error('Erro ao conectar no banco:', err);
 });
 
+fastify.get('/services', async(request, reply) => servico.getService(request, reply))
 // Rota para criar usuário
 // fastify.post('/usuarios', usuarioService.createUsuario)
 
