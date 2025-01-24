@@ -77,7 +77,6 @@ const postService = async(request, reply) => {
     if (notEmptyData) {
         const instance = new Service()
         const dataPost = await instance.post(titulo, descricao, valor, idUser)
-        console.log(dataPost.sql)
 
         reply.send(dataPost)
     }
@@ -93,7 +92,7 @@ const removeService = async(request, reply) =>{
 
     const instance = new Service()
     const dataRemove = await instance.remove(idEmpresa, idService)
-    console.log(dataRemove)
+    
     dataRemove == 1 ? reply.send({success: true, message: "Serviço removido com sucesso!"}) : reply.status(500).send({success: false, message: "Erro ao remover o serviço! Contate a equipe de suporte."})
 }
 
@@ -101,7 +100,6 @@ const updateService = async(request, reply) => {
     const {titulo, descricao, valor} = request.body
     const {idService, idUser} = request.query
 
-    console.log(request.query)
 
     const notEmptyData = titulo != "" && descricao != "" && valor != "" && idService != "" && idUser != ""
 
