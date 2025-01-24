@@ -56,7 +56,22 @@ const getServiceById = async (request, reply) => {
     reply.send(data)
 }
 
+const postService = async(request, reply) => {
+    const {titulo, descricao, valor, idUser} = request.body
+
+    const notEmptyData = titulo != "" && descricao != "" && valor != "" && idUser != ""
+
+    if (notEmptyData) {
+        const instance = new Service()
+        const dataPost = await instance.post(titulo, descricao, valor, idUser)
+        console.log(dataPost.sql)
+
+        reply.send(dataPost)
+    }
+}
+
 module.exports ={
     getService,
-    getServiceById
+    getServiceById,
+    postService
 }

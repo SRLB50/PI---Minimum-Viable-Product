@@ -16,6 +16,7 @@ models.sequelize.sync().then(() => {
 
 fastify.get('/services', async(request, reply) => servico.getService(request, reply))
 fastify.get('/servicesUser', async(request, reply) => servico.getServiceById(request, reply))
+fastify.post('/services/create', async(request, reply) => servico.postService(request, reply))
 // Rota para criar usuário
 // fastify.post('/usuarios', usuarioService.createUsuario)
 
