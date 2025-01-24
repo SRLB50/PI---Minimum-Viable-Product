@@ -35,8 +35,16 @@ class Service {
         })
     }
 
-    update(){
-        
+    async update(titulo, descricao, valor, idService, idUser){
+        return await models.Servico.update(
+            { titulo: titulo, descricao: descricao, valor: valor},
+            {
+                where : {
+                    id: idService,
+                    empresa_id : idUser
+                }
+            }
+        )
     }
 }
 
@@ -89,9 +97,26 @@ const removeService = async(request, reply) =>{
     dataRemove == 1 ? reply.send({success: true, message: "Serviço removido com sucesso!"}) : reply.status(500).send({success: false, message: "Erro ao remover o serviço! Contate a equipe de suporte."})
 }
 
+const updateService = async(request, reply) => {
+    const {titulo, descricao, valor} = request.body
+    const {idService, idUser} = request.query
+
+    const notEmptyData = titulo != "" && descricao != "" && valor != "" && idService != "" && idUser != ""
+
+    if (!notEmptyData) {
+        reply.status(400).send({error: 'Envie os dados corretamente!'})
+    }
+    
+    const instance = new Service()
+    const dataUpdate = await instance.update(titulo, descricao, valor, idService, idUser)
+
+    reply.send(dataUpdate)
+}
+
 module.exports ={
     getService,
     getServiceById,
     postService,
-    removeService
+    removeService,
+    updateService
 }
