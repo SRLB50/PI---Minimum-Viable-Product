@@ -15,9 +15,10 @@ models.sequelize.sync().then(() => {
 });
 
 fastify.get('/services', async(request, reply) => servico.getService(request, reply))
-fastify.get('/servicesUser', async(request, reply) => servico.getServiceById(request, reply))
+fastify.get('/services/user', async(request, reply) => servico.getServiceById(request, reply))
 fastify.post('/services/create', async(request, reply) => servico.postService(request, reply))
 fastify.delete('/services/remove', async(request, reply) => servico.removeService(request, reply))
+fastify.put('/services/update', async(request, reply) => servico.updateService(request, reply))
 // Rota para criar usuário
 // fastify.post('/usuarios', usuarioService.createUsuario)
 

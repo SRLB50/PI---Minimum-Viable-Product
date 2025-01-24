@@ -101,6 +101,8 @@ const updateService = async(request, reply) => {
     const {titulo, descricao, valor} = request.body
     const {idService, idUser} = request.query
 
+    console.log(request.query)
+
     const notEmptyData = titulo != "" && descricao != "" && valor != "" && idService != "" && idUser != ""
 
     if (!notEmptyData) {
@@ -110,7 +112,7 @@ const updateService = async(request, reply) => {
     const instance = new Service()
     const dataUpdate = await instance.update(titulo, descricao, valor, idService, idUser)
 
-    reply.send(dataUpdate)
+    dataUpdate[0] > 0 ? reply.send({success: true, message: "Serviço atualizado com sucesso!"}) : reply.status(500).send({success: false, message: "Erro ao atualizar o serviço! Contate a equipe de suporte."})
 }
 
 module.exports ={
