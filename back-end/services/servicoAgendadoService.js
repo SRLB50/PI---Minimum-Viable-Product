@@ -85,3 +85,28 @@ const removeScheduledService = async (request, reply) =>{
         reply
     }
 }
+
+const updateScheduledService = async (request, reply) => {
+    const {scheduling, id} = request.body
+
+    const valuesOfSchedulingEmpty = Object.values(scheduling)
+
+    const empty = valuesOfSchedulingEmpty.includes("") || valuesOfSchedulingEmpty.includes(null)
+
+    if (empty) {
+        reply.code(400).send({success : false, message: "Preencha todos os dados da API"})
+        return 
+    }
+
+    const instance = ScheduledService()
+
+    reply.send(await instance.update(scheduling, id))
+}
+
+module.exports = {
+    getAllScheduledServices,
+    getScheduledServicesByCompany,
+    postScheduledService,
+    removeScheduledService,
+    updateScheduledService
+}
