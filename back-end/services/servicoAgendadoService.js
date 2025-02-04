@@ -45,3 +45,43 @@ class ScheduledService{
         })
     }
 }
+
+const getAllScheduledServices = async (request, reply) => {
+    const instance = ScheduledService()
+
+    reply.send(await instance.get())
+}
+
+const getScheduledServicesByCompany = async (request, reply) =>{
+    const {companyId} = request.query
+    const instance = ScheduledService(companyId)
+
+    reply.send(await instance.getCompanyServices())
+}
+
+const postScheduledService = async (request, reply) => {
+    const {scheduling} = request.body
+
+    const valuesOfSchedulingEmpty = Object.values(scheduling)
+
+    const empty = valuesOfSchedulingEmpty.includes("") || valuesOfSchedulingEmpty.includes(null)
+
+    if (empty) {
+        reply.code(400).send({success : false, message: "Preencha todos os dados da API"})
+        return 
+    }
+
+    const instance = ScheduledService()
+
+    reply.send(await instance.post(scheduling))
+}
+
+const removeScheduledService = async (request, reply) =>{
+    const {id} = request.query
+
+    const empty = ['', null, undefined].includes(id)
+
+    if (empty) {
+        reply
+    }
+}
