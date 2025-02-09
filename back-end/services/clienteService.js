@@ -1,86 +1,48 @@
-const models = require('../models')
+const {Cliente, Endereco, sequelize} = require('../models');
 
-const createSintoma = async (request, reply) => {
-  const { usuario_id, data, descricao } = request.body; 
+const createClient = async (request, reply) => {
+  const { cpf, nome, email, telefone, enderecos, senha } = request.body;
 
-  if(!descricao) {
-	reply.status(400).send({erro: 'Campo descrição é obrigatório!'})
-	return
-  } else if(!data) {
-	reply.status(400).send({erro: 'Campo data é obrigatório!'})
+  console.log("Iniciando criação do cliente...");
+  console.log("Dados recebidos:", { cpf, nome, email, telefone, enderecos, senha });
+
+  if(!cpf || !nome || !email || !telefone || !enderecos || !senha) {
+	reply.status(400).send({erro: 'Por favor, preencha todos os campos!'})
 	return
   }
+
+  const transaction = await sequelize.transaction();
 
   try {
-    const sintoma = await models.Sintomas.create({usuario_id, data, descricao})
-    reply.send(sintoma)
+    const cliente = await Cliente.create(
+      {cpf, nome, email, telefone, senha},
+      {transaction}
+    );
+
+    const enderecosCriados = await Endereco.bulkCreate(
+      enderecos.map((endereco) => ({
+        entidadeId: cliente.cpf,
+        entidadeTipo: "cliente",
+        ...endereco,
+      })),
+      {transaction}
+    );
+
+    await transaction.commit();
+
+    reply.status(201).send({
+      sucesso: 'Usuário cadastrado' ,
+      dados: {cliente, enderecos: enderecosCriados},
+    });
+
   } catch (err) {
-    reply.status(500).send({ erro: 'falha ao cadastrar sintoma.', details: err})
+    await transaction.rollback();
+    console.error("Erro ao criar cliente:", err.message, err.stack);
+    reply.status(500).send({ erro: 'Falha ao cadastrar usuário.', details: err})
   }
 }
 
-const getSintomaByIdUser = async (request, reply) => {
-	const { id } = request.params;
-  
-	try {
-	  const sintomas = await models.Sintomas.findAll({
-		where: { usuario_id: id } 
-	  });
-  
-	  if (sintomas.length > 0) {
-		reply.send(sintomas);
-	  } else {
-		reply.status(404).send({ erro: "Nenhum sintoma encontrado para o usuário especificado!" });
-	  }
-	} catch (err) {
-	  reply.status(500).send({ erro: 'Erro ao obter sintomas.', details: err.message });
-	}
-  };
-
-const  updateSintoma = async ( request, reply ) => {
-	const { id } = request.params;
-  	const { descricao } = request.body;
-
-	if(!descricao) {
-		reply.status(400).send({erro: 'Campo descrição é obrigatório!'})
-		return
-	}
-
-	try {
-		const sintoma = await models.Sintomas.findByPk(id)
-		if(sintoma) {
-			sintoma.descricao = descricao
-			await sintoma.save()
-
-			reply.send({message: 'Alteração realizada com sucesso!'})
-		} else {
-			reply.status(404).send({ erro: "nenhum sintoma encontrado!"})
-		}
-	} catch (err) {
-		reply.status(500).send({ erro: 'Erro ao obter sintomas.', details: err})
-	}
-}
-
-const deleteSintoma = async ( request, reply ) => {
-	const { id } = request.params;
-
-	try {
-		const sintoma = await models.Sintomas.findByPk(id)
-		if(sintoma) {
-			await sintoma.destroy()
-
-			reply.send({message: "sintoma deletado com sucesso!"})
-		} else {
-			reply.status(404).send({ erro: "Não foi possível deletar sintoma!"})
-		}
-	} catch (err) {
-		reply.status(500).send({ erro: 'Erro ao deletar sintomas.', details: err})
-	}
-}
 
 module.exports = {
-  createSintoma,
-  getSintomaByIdUser,
-  updateSintoma,
-  deleteSintoma,
+  createClient,
 };
