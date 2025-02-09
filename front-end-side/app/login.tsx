@@ -52,7 +52,7 @@ const LoginScreen = () => {
 
           <TouchableOpacity 
             onPress={handleLogin}
-            className="w-full bg-black rounded-lg py-4 mt-4"
+            className="w-full bg-black rounded-lg py-4 mt-4 mb-4"
           >
             <Text className="text-white text-center font-semibold">Login</Text>
           </TouchableOpacity>
