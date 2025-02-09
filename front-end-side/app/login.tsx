@@ -21,7 +21,7 @@ const LoginScreen = () => {
     <View className="flex-1 bg-white">
       {/* Black curved header */}
       <View className="bg-black h-48 rounded-b-[50px]">
-        <View className="flex-row items-center justify-center space-x-2 p-6 mt-6">
+        <View className="flex-row items-center justify-center space-x-2 p-6 mt-12">
           <Image source={Logo} />
         </View>
       </View>
