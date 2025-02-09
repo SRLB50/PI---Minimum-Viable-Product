@@ -4,6 +4,14 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@layout/*": ["layout/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"],
       "~/*": [
         "*"
       ]
