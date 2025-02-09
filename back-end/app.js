@@ -27,6 +27,11 @@ fastify.post('/services/create', async(request, reply) => servico.postService(re
 fastify.delete('/services/remove', async(request, reply) => servico.removeService(request, reply))
 fastify.put('/services/update', async(request, reply) => servico.updateService(request, reply))
 
+fastify.get("/scheduledServices", async (request, reply) => servicoAgendado.getAllScheduledServices(request, reply))
+fastify.get("/scheduledServices/company", async (request, reply) => servicoAgendado.getScheduledServicesByCompany(request, reply))
+fastify.post("/scheduledServices/create", async (request, reply) => servicoAgendado.postScheduledService(request, reply))
+fastify.delete("/scheduledServices/remove", async (request, reply) => servicoAgendado.removeScheduledService(request, reply))
+fastify.put("/scheduledServices/update", async (request, reply) => servicoAgendado.updateScheduledService(request, reply))
 
 // Roda o server
 const start = async () => {
