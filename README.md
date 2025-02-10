@@ -3,7 +3,7 @@ Alocação de serviços domésticos: "CasaCuida".
 
 <p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024. Professor: Enoque Leal.</p>
 
-# 1ª e 2ª Entrega: Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
+# Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
 
 ## Integrantes 
 <ul>
