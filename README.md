@@ -1,7 +1,7 @@
 # PROJETO INTEGRADOR - Minimum Viable Product
 Alocação de serviços domésticos: "CasaCuida".
 
-<p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024. Professor: Enoque Leal.</p>
+<p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, em 2025. Professor: Enoque Leal.</p>
 
 # Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
 
