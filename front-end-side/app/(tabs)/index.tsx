@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { ScreenContent } from '~/components/ScreenContent';
+import { ScreenContent } from '@components/Template/ScreenContent';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 

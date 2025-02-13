@@ -1,16 +1,50 @@
 import { useRouter } from "expo-router";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { z } from "zod";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-//images
+// @ts-ignore
 import Logo from "../assets/Logo.png"
+
+// Schema de validação
+const loginSchema = z.object({
+  email: z.string()
+    .min(1, "E-mail é obrigatório")
+    .email("E-mail inválido"),
+  password: z.string()
+    .min(6, "Senha deve ter no mínimo 6 caracteres")
+    .max(50, "Senha muito longa"),
+});
+
+// Tipo inferido do schema
+type LoginFormData = z.infer<typeof loginSchema>;
 
 const LoginScreen = () => {
   const router = useRouter();
 
-  const handleLogin = () => {
-    AsyncStorage.setItem('token', 'teste')
-    router.replace("/(tabs)");
+  const { 
+    control, 
+    handleSubmit, 
+    formState: { errors } 
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: '',
+      password: ''
+    }
+  });
+
+  const handleLogin = async (data: LoginFormData) => {
+    try {
+      // Aqui você pode adicionar sua lógica de autenticação
+      return false
+      await AsyncStorage.setItem('token', 'teste');
+      router.replace("/(tabs)");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleRegister = () => {
@@ -19,39 +53,69 @@ const LoginScreen = () => {
 
   return (
     <View className="flex-1 bg-white">
-      {/* Black curved header */}
       <View className="bg-black h-48 rounded-b-[50px]">
         <View className="flex-row items-center justify-center space-x-2 p-6 mt-12">
           <Image source={Logo} />
         </View>
       </View>
 
-      {/* Login form */}
       <View className="px-6 mt-8">
         <Text className="text-2xl font-medium mb-8">Login</Text>
 
         <View className="space-y-4">
           <View>
             <Text className="text-gray-700 text-base font-normal mb-2">E-mail</Text>
-            <TextInput 
-              placeholder="Digite seu e-mail"
-              placeholderTextColor="#A0A0A0"
-              className="w-full bg-gray-50 rounded-lg p-4 text-black"
+            <Controller
+              control={control}
+              name="email"
+              render={({ field: { onChange, value } }) => (
+                <TextInput 
+                  value={value}
+                  onChangeText={onChange}
+                  placeholder="Digite seu e-mail"
+                  placeholderTextColor="#A0A0A0"
+                  className={`w-full bg-gray-50 rounded-lg p-4 text-black ${
+                    errors.email ? "border-2 border-red-500" : ""
+                  }`}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                />
+              )}
             />
+            {errors.email && (
+              <Text className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </Text>
+            )}
           </View>
 
           <View>
             <Text className="text-gray-700 text-base mb-2 mt-5 font-normal">Senha</Text>
-            <TextInput 
-              placeholder="Digite sua senha"
-              placeholderTextColor="#A0A0A0"
-              secureTextEntry
-              className="w-full bg-gray-50 rounded-lg p-4 text-black"
+            <Controller
+              control={control}
+              name="password"
+              render={({ field: { onChange, value } }) => (
+                <TextInput 
+                  value={value}
+                  onChangeText={onChange}
+                  placeholder="Digite sua senha"
+                  placeholderTextColor="#A0A0A0"
+                  secureTextEntry
+                  className={`w-full bg-gray-50 rounded-lg p-4 text-black ${
+                    errors.password ? "border-2 border-red-500" : ""
+                  }`}
+                />
+              )}
             />
+            {errors.password && (
+              <Text className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </Text>
+            )}
           </View>
 
           <TouchableOpacity 
-            onPress={handleLogin}
+            onPress={handleSubmit(handleLogin)}
             className="w-full bg-black rounded-lg py-4 mt-4 mb-4"
           >
             <Text className="text-white text-center font-semibold">Login</Text>

@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { ScreenContent } from '~/components/ScreenContent';
+import { ScreenContent } from '@components/Template/ScreenContent';
 
 export default function Home() {
   return (
