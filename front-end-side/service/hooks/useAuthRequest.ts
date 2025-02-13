@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext/index"
 
 // libraries
 import axios from "axios"
-import { useRouter } from 'expo-router';
+// import { useRouter } from 'expo-router';
 import { UseFormSetError } from "react-hook-form"
 
 // API Standarts
@@ -16,7 +16,7 @@ import { LoginFormData } from "../../schemas/authSchema"
 
 export const useAuthRequest = () => {
   const { login } = useAuth()
-  const router = useRouter();
+  // const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const generateHeaders = (username: string, password: string) => {
@@ -52,7 +52,7 @@ export const useAuthRequest = () => {
       if (response.data) {
         // Salva o token e redireciona
         login(response.data.dados.token, response.data.dados.expiraEm)
-        router.push("/")
+        // router.push("/")
       }
     } catch (error: any) {
       if (axios.isAxiosError(error)) {

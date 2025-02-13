@@ -1,6 +1,6 @@
-import { useRouter } from "expo-router";
+// import { useRouter } from "expo-router";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,7 +22,7 @@ const loginSchema = z.object({
 type LoginFormData = z.infer<typeof loginSchema>;
 
 const LoginScreen = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const { 
     control, 
@@ -40,8 +40,8 @@ const LoginScreen = () => {
     try {
       // Aqui você pode adicionar sua lógica de autenticação
       return false
-      await AsyncStorage.setItem('token', 'teste');
-      router.replace("/(tabs)");
+      // await AsyncStorage.setItem('token', 'teste');
+      // router.replace("/(tabs)");
     } catch (error) {
       console.error(error);
     }
