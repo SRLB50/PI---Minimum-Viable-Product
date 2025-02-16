@@ -1,9 +1,9 @@
 # PROJETO INTEGRADOR - Minimum Viable Product
 Alocação de serviços domésticos: "CasaCuida".
 
-<p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, 13/11/2024. Professor: Enoque Leal.</p>
+<p align="center">Repositório criado para o PROJETO INTEGRADOR: CRIAÇÃO DE MINIMUM VIABLE PRODUCT do curso de Tecnologia em Sistemas para Internet do Senac São Paulo, em 2025. Professor: Enoque Leal.</p>
 
-# 1ª e 2ª Entrega: Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
+# Proposta de Produto Mínimo Viável em Alocação de Serviços Domésticos - CasaCuida.
 
 ## Integrantes 
 <ul>
@@ -59,9 +59,6 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 ## Tecnologias Utilizadas
 - **Frontend**: React Native
 - **Backend**: Node.js
-- **Banco de Dados**: ?????????
-- **Autenticação**: ???????????
-- **Hospedagem**: ???????????????
 
 ## Estrutura do Projeto
 ### Telas:
@@ -127,3 +124,4 @@ ________________________________________________________________________________
 [Link do FIGMA]
 
 <li><strong>Para baixar este projeto no <a href="https://github.com/SRLB50/PI---Minimum-Viable-Product">Github</a></strong>, https://github.com/SRLB50/PI---Minimum-Viable-Product</li>
+[Link do FIGMA](https://www.figma.com/proto/TsiFfBjaPVm99VrjS8Pzur/App---CasaCuida?node-id=2001-22&t=l5VAuCgwxlg5amPq-1&scaling=min-zoom&content-scaling=fixed&page-id=2001%3A13&starting-point-node-id=2001%3A14)

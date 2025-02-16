@@ -1,9 +1,9 @@
 {
-  "cesVersion": "2.12.1",
+  "cesVersion": "2.12.2",
   "projectName": "front-end",
   "packages": [
     {
-      "name": "expo-router",
+      "name": "react-navigation",
       "type": "navigation",
       "options": {
         "type": "tabs"
