@@ -19,7 +19,6 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
             case "Pendente":
                 return "#FFB947"
             case "Finalizado":
-                console.log("FINALIZOUUUUU")
                 return "#78CA25"
             default:
                 break;
@@ -47,7 +46,7 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
     return (
         <View className="bg-[#FFFFFF] p-[10] rounded-[15] my-[10] flex-row justify-between items-center h-[115]">
             <View className="gap-[6]">
-                <View className={"bg-[" + (status == "Finalizado" ? "#78CA25" : statusColor) + "] w-[80] p-[2px] rounded-[15] flex-row items-center justify-center"}>
+                <View className={"bg-[" + (statusColor) + "] w-[80] p-[2px] rounded-[15] flex-row items-center justify-center"}>
                     <Text className="text-[#FFF] text-[0.9rem] font-medium">{status}</Text>
                 </View>
                 <Text className="text-[1.4rem]">{titulo}</Text>
