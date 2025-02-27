@@ -1,11 +1,18 @@
 import Dashboard from "@components/Home/Dashboard";
 import Header from "@components/Home/Header";
+import HomeCliente from "@components/Home/HomeCliente";
 import HomePrestador from "@components/Home/HomePrestador";
 import Servico from "@components/Home/Servico";
 import { View, Text, ScrollView } from "react-native";
 
 const home = () => {
+  const validateTypeUser:string = "cliente"
 
+
+  return (validateTypeUser == "prestador" ? <HomePrestador services={servicesAPI()} /> : <HomeCliente />)
+}
+
+const servicesAPI = () => {
   type ServicesProps = {
     status: string
     cliente: string
@@ -46,7 +53,7 @@ const home = () => {
     },
   ]
 
-  return <HomePrestador services={services} />
+  return services
 }
 
 export default home
