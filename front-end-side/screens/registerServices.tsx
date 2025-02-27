@@ -1,3 +1,4 @@
+import ItemRegister from '@components/RegisterServices/ItemRegister';
 import Register from '@components/RegisterServices/Register';
 import React from 'react'
 import { View, Text } from 'react-native'
@@ -11,7 +12,7 @@ const registerServices = () => {
 
             <Register />
 
-            
+            <ItemRegister title='Pintura' value={100} />
         </View>
     </SafeAreaView>
   )
