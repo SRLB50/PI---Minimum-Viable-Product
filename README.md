@@ -47,7 +47,7 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 ## Funcionalidades
 ### **Usuário Cliente**:
 - Cadastro e Login.
-- Navegação na Home da CasaCuida para listar e buscar os serviços oferecidos.
+- Navegação na Home do CasaCuida para listar e buscar os serviços oferecidos.
 - Agendamento de serviços.
 - Avaliação dos serviços contratados e dos clientes.
 
@@ -67,7 +67,7 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 2. **Tela Home**:
    - Lista de serviços disponíveis.
 3. **Tela de Perfil**:
-   - Exibe informações do usuário.
+   - Exibe informações do usuário ou empresa.
 4. **Tela Meus Serviços** (Empresas):
    - Gerenciar serviços cadastrados.
 5. **Tela Serviços Agendados**:
@@ -130,7 +130,7 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
     - Motivação: Usar avaliações no app para se destacar e fortalecer sua credibilidade no mercado.
 
 ### Jornada do Usuário
-- **Cliente**: Entra no app --> Pesquisa por "serviços de faxina" --> Faz cadastro --> Seleciona o profissional com base em avaliações e preço do serviço --> Agenda o serviço.
+- **Cliente**: Entra no app --> Pesquisa por "serviços de faxina" --> Faz cadastro --> Seleciona o profissional com base em avaliações e preço do serviço --> Agenda o serviço e faz o pagamento.
 - **Empresa**: Entra no app --> Faz Cadastro --> Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos --> Confirma solicitações de serviço --> Realiza o serviço --> Recebe pagamento diretamente do cliente --> Verifica avaliações e responde a comentários.
 
 ## Protótipo para validar a navegação do produto proposto:
@@ -146,7 +146,7 @@ Esses testes não apenas confirmaram a eficiência da navegação proposta, mas 
 
 ## MVP - Produto Mínimo Viável
 A primeira versão do MVP foca nas funcionalidades principais:
-- Cadastro/Login de usuários.
+- Cadastro/Login de usuários (empresa/cliente).
 - Listagem e busca de serviços.
 - Agendamento/Cancelamento e gerenciamento de serviços.
 
