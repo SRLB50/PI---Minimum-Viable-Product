@@ -75,6 +75,53 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
   
 ## Telas do Protótipo
 
+| ![cc01](https://github.com/user-attachments/assets/638e2189-e8f0-4d95-b086-40e7071b6b67)   | ![cc002](https://github.com/user-attachments/assets/eb0f8572-b92a-4343-a13e-038f5bd77009)  |
+|      :-------------------------:                                                           |        :-------------------------:       |
+|         **Tela de Login**                                                                  |           **Tela de Cadastro Cliente Prestador**   |
+
+&nbsp;
+
+| ![[cc03](https://github.com/user-attachments/assets/3375fc4f-9935-4522-9d00-e606d408ec4a)  | ![cc04](https://github.com/user-attachments/assets/ba5d6b6c-f360-4cf3-bed6-1b0cbd7a3f51)  |
+|      :-------------------------:                                                           |        :-------------------------:       |
+|   **Tela de Cadastro Cliente**                                                             |      **Tela de Serviços Agendados**      |
+
+&nbsp;
+
+| ![cc05](https://github.com/user-attachments/assets/d39c17c2-c544-4a75-b5ae-e2e0ffcf7ede)  | ![cc06](https://github.com/user-attachments/assets/b630a146-f862-40c0-9c58-0fb82fe2f991)  |
+|      :-------------------------:                                                          |        :-------------------------:       |
+|      **Tela Meus Serviços Empresa**                                                               |        **Tela Meus Serviços Destaque**        |
+
+&nbsp;
+
+| ![cc07](https://github.com/user-attachments/assets/b1ab59b1-e0d4-4ea1-8b61-1090f5294198)  | ![cc08](https://github.com/user-attachments/assets/bd0b0a9f-d3d4-459a-b878-00dffeefe8ce)  |
+|      :-------------------------:                                                          |        :-------------------------:       |
+|         **Tela Cadastrar Serviços**                                                       |     **Tela Perfil Empresa**   |
+
+&nbsp;
+
+| ![cc09](https://github.com/user-attachments/assets/869882a7-c739-45bc-a90c-18028c8e09b7)  | ![cc010](https://github.com/user-attachments/assets/fab4a695-4161-4c44-978d-e878c3fc8729)  |
+|      :-------------------------:                                                          |        :-------------------------:       |
+|   **Tela Dados da Empresa**                                                               |      **Tela Serviços Cliente**      |
+
+&nbsp;
+
+| ![cc011](https://github.com/user-attachments/assets/5b030d72-198c-4309-92d2-531cd8e25381)  | ![cc012](https://github.com/user-attachments/assets/96f42507-34d2-47ed-9ff0-7ebc8275d094)  |
+|      :-------------------------:                                                           |        :-------------------------:       |
+|      **Tela Meus Agendamentos (cliente)**                                                  |        **Tela Perfil (Dados do Usuário)**        |
+
+&nbsp;
+
+| ![cc013](https://github.com/user-attachments/assets/ff9b585a-09b0-46af-8603-a77f62fac070)  
+|      :-------------------------:         
+|         **Tela Dados do Usuário**            
+
+&nbsp;
+
+
+
+
+
+
 ![cc01](https://github.com/user-attachments/assets/638e2189-e8f0-4d95-b086-40e7071b6b67)
 ![cc002](https://github.com/user-attachments/assets/eb0f8572-b92a-4343-a13e-038f5bd77009)
 ![cc03](https://github.com/user-attachments/assets/3375fc4f-9935-4522-9d00-e606d408ec4a)
