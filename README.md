@@ -75,7 +75,7 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
   
 ## Telas do Protótipo
 
-| ![cc01](https://github.com/user-attachments/assets/638e2189-e8f0-4d95-b086-40e7071b6b67 width="300")   | ![cc002](https://github.com/user-attachments/assets/eb0f8572-b92a-4343-a13e-038f5bd77009)  |
+| ![cc01](https://github.com/user-attachments/assets/638e2189-e8f0-4d95-b086-40e7071b6b67width="300")   | ![cc002](https://github.com/user-attachments/assets/eb0f8572-b92a-4343-a13e-038f5bd77009)  |
 |      :-------------------------:                                                           |        :-------------------------:       |
 |         **Tela de Login**                                                                  |           **Tela de Cadastro Cliente Prestador**   |
 
