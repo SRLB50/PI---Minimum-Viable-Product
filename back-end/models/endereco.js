@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false,
           validate: {
               is: {
-                args: [/^\d{5}-\d{3}$/],
+                args: [/^\d{8}$/],
                 msg: 'CEP inválido',
               },
           },

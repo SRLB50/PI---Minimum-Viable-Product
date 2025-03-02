@@ -10,6 +10,7 @@ const createClient = async (request, reply) => {
 	reply.status(400).send({erro: 'Por favor, preencha todos os campos!'})
 	return
   }
+  const enderecosArray = Array.isArray(enderecos) ? enderecos : [enderecos];
 
   const transaction = await sequelize.transaction();
 
@@ -20,7 +21,7 @@ const createClient = async (request, reply) => {
     );
 
     const enderecosCriados = await Endereco.bulkCreate(
-      enderecos.map((endereco) => ({
+      enderecosArray.map((endereco) => ({
         entidadeId: cliente.cpf,
         entidadeTipo: "cliente",
         ...endereco,
@@ -38,7 +39,7 @@ const createClient = async (request, reply) => {
   } catch (err) {
     await transaction.rollback();
     console.error("Erro ao criar cliente:", err.message, err.stack);
-    reply.status(500).send({ erro: 'Falha ao cadastrar usuário.', details: err})
+    reply.status(500).send({ erro: 'Falha ao cadastrar usuário.', details: err.message , stack: err.stack });
   }
 }
 

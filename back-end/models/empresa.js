@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         is: {
-          args: [/^\(\d{2}\)\d{4,5}-\d{4}$/],
+          args: [/^\d{10,11}$/],
           msg: 'Número de telefone inválido',
         }
       }
