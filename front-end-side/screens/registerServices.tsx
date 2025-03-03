@@ -11,7 +11,7 @@ type PropsAPI = {
 }
 
 const registerServices = () => {
-  const [services, setServices] = useState([])
+  const [services, setServices] = useState<PropsAPI[]>([])
 
   const userPK = "00.981.551/0001-88"
 
@@ -32,13 +32,13 @@ const registerServices = () => {
       <View className='p-[20px]'>
         <Text className='text-[1.7rem] font-medium'>Cadastrar Serviços</Text>
 
-        <Register />
+        <Register setServices={setServices} />
 
-        <ScrollView className='h-[400]'>
+        <ScrollView className='h-[37vh]'>
           <View className='gap-[10]'>
 
             {services.length > 0 ?
-              services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} />))
+              services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} key={i} />))
               : <Text>Ops... Não há serviços cadastrados!</Text>
             }
           </View>

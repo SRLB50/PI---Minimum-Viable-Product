@@ -1,16 +1,10 @@
 import { url } from "./configs/config.json"
 
 type BodyServices  = {
-    txt_solicitante         : string
-    txt_email               : string
-    txt_data_solic          : string
-    txt_topico_ajuda        : string
-    sl_prioridade           : string
-    ztxt_grupo_atendimento  : string
-    txta_obs_chamado        : string
-    hd_mat_solic            : string
-    hd_grupo_atendimento    : string
-    hd_sla_horas            : string
+    titulo     : string
+    descricao  : string
+    valor      : number
+    idUser     : string
 }
 
 class RegisterServices {
@@ -43,7 +37,7 @@ class RegisterServices {
         try {
             const requestOptions = this.#getRequest();
 
-            const response = await fetch(`${url}/process`, requestOptions);
+            const response = await fetch(`${url}/services/create`, requestOptions);
 
             if (!response.ok) {
                 throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
