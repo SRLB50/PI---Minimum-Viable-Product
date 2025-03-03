@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller, Control, RegisterOptions } from 'react-hook-form';
+import { Controller, Control, RegisterOptions, useForm } from 'react-hook-form';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 
 interface CustomInputProps extends TextInputProps {
@@ -20,6 +20,10 @@ const CustomInput: React.FC<CustomInputProps> = ({
     secureTextEntry,
     ...props 
 }) => {
+
+  const {register , watch} = useForm();
+  const emptyInput = watch(name);
+
   return (
     <View className={`mb-5 ${className}`}>
         <Text className='font-inter font-normal text-xl color-inputLabelText mb-3'>
@@ -32,11 +36,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
           render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
             <>
               <TextInput
+                  {...register(name)}
                   onBlur={onBlur}
                   onChangeText={onChange}
                   value={value}
                   secureTextEntry={secureTextEntry}
-                  className='text-xl color-inputText border border-inputBorder rounded-xl px-4 py-2'
+                  className={`text-xl border border-inputBorder rounded-xl px-4 py-2 ${emptyInput ? ' color-inputText' : 'color-inputLabelText'}`}
                   {...props}
               />
               {error && (
