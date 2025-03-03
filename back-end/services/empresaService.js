@@ -11,6 +11,8 @@ const createCompany = async (request, reply) => {
     return
   }
 
+  const enderecosArray = Array.isArray(enderecos) ? enderecos : [enderecos];
+
   const transaction = await sequelize.transaction();
 
   try {
@@ -20,7 +22,7 @@ const createCompany = async (request, reply) => {
     );
 
     const enderecosCriados = await Endereco.bulkCreate(
-      enderecos.map((endereco) => ({
+      enderecosArray.map((endereco) => ({
         entidadeId: empresa.cnpj,
         entidadeTipo: "empresa",
         ...endereco,
@@ -41,7 +43,7 @@ const createCompany = async (request, reply) => {
   } catch (err) {
     await transaction.rollback();
     console.error("Erro ao criar empresa:", err);
-    reply.status(500).send({ erro: 'Falha ao cadastrar empresa.', details: err})
+    reply.status(500).send({ erro: 'Falha ao cadastrar empresa.', details: err.message , stack: err.stack})
   }
 }
 

@@ -19,9 +19,16 @@ const Cadastro = () => {
 
     const navigation = useNavigation<NavigationProps>();
 
-    const { control, handleSubmit, formState: { errors }, watch} = useForm();
+    const { control, handleSubmit, formState: { errors }, watch, resetField} = useForm();
 
-
+    useEffect(() => {
+        if (isClient) {
+          resetField("cnpj");
+          resetField("tipoServico");
+        } else {
+          resetField("cpf");
+        }
+      }, [isClient, resetField]);
 
     const onSubmit = async (data: any) => {
 
@@ -30,7 +37,7 @@ const Cadastro = () => {
         console.log('Dados finais enviados:' , dataToSend);
     
         try {
-            const response = await fetch('https://6f63-2804-4b0-1335-9700-1064-61d2-fbdc-e288.ngrok-free.app/user/create', {
+            const response = await fetch(isClient ? 'https://6f63-2804-4b0-1335-9700-1064-61d2-fbdc-e288.ngrok-free.app/user/create' : 'https://6f63-2804-4b0-1335-9700-1064-61d2-fbdc-e288.ngrok-free.app/company/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -79,12 +86,12 @@ const Cadastro = () => {
                         setFirstOptionSelected={setIsClient}
                     />
                     {
-                        isClient ?
+                        isClient ? 
                             <CustomInput 
                                 name= 'cpf'
                                 control={control}
-                            label= 'CPF'
-                            placeholder= '000.000.000-00'
+                                label= 'CPF'
+                                placeholder= '000.000.000-00'
                             />
                         :
                             <>
