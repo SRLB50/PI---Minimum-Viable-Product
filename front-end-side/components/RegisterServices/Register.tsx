@@ -23,6 +23,7 @@ type ServicesFormData = z.infer<typeof registerSchema>
 type ServiceType = {
     titulo: string
     valor: number
+    id : number
 };
 
 type SetServicesProps = {
@@ -73,7 +74,13 @@ const Register = ({ setServices }: SetServicesProps) => {
 
         const successRegister = registerServices.success
 
-        successRegister ? fetchAPI() : alert("Erro ao cadastrar serviço!")
+        if(successRegister)  {
+            fetchAPI()
+            control._reset()
+        }
+        else {
+            alert("Erro ao cadastrar serviço!")
+        }
     })
 
     const fetchAPI = async () => {

@@ -7,7 +7,8 @@ import RegisterApi from './../service/registerServices'
 
 type PropsAPI = {
   titulo: string
-  valor: number
+  valor: number,
+  id : number
 }
 
 const registerServices = () => {
@@ -38,7 +39,7 @@ const registerServices = () => {
           <View className='gap-[10]'>
 
             {services.length > 0 ?
-              services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} key={i} />))
+              services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} key={data.id} />))
               : <Text>Ops... Não há serviços cadastrados!</Text>
             }
           </View>
