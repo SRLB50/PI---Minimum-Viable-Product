@@ -24,13 +24,16 @@ type ServiceType = {
     titulo: string
     valor: number
     id : number
+    description : string
 };
 
 type SetServicesProps = {
-    setServices: React.Dispatch<React.SetStateAction<ServiceType[]>>;
+    setServices: React.Dispatch<React.SetStateAction<ServiceType[]>>
+    dataService: React.Dispatch<React.SetStateAction<ServiceType | undefined>>
+    setModal: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const Register = ({ setServices }: SetServicesProps) => {
+const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
 
     const userPK = "00.981.551/0001-88"
 
@@ -77,6 +80,8 @@ const Register = ({ setServices }: SetServicesProps) => {
         if(successRegister)  {
             fetchAPI()
             control._reset()
+            setModal(true)
+            dataService(registerServices)
         }
         else {
             alert("Erro ao cadastrar serviço!")
