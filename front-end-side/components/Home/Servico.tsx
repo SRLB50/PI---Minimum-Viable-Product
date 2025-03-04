@@ -14,26 +14,24 @@ type ServicoProps = {
 const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
     const colorStatus = (statusAtend: string) => {
         switch (statusAtend) {
+            case "Finalizado":
+                return "#78CA25"
             case "Cancelado":
                 return "#FF4747"
             case "Pendente":
                 return "#FFB947"
-            case "Finalizado":
-                return "#78CA25"
             default:
-                break;
+                return "#2C2C2C"
         }
     }
 
-    const [statusColor, setStatusColor] = useState<string>()
+    const [statusColor, setStatusColor] = useState<string>("")
 
     const [month, setMonth] = useState<string>("")
     const [day, setDay] = useState<string>("")
     const [hours, setHours] = useState<string>("")
 
     useEffect(() => {
-        setStatusColor(colorStatus(status))
-
         const [date, hours] = data.split(" ")
         const [day, month, year] = date.split("/")
 
@@ -43,10 +41,13 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
         setDay(day)
         setHours(hours)
     }, [])
+
+    useEffect(() => setStatusColor(colorStatus(status)), [status])
+
     return (
         <View className="bg-[#FFFFFF] p-[10] rounded-[15] my-[10] flex-row justify-between items-center h-[115]">
             <View className="gap-[6]">
-                <View className={"bg-[" + (statusColor) + "] w-[80] p-[2px] rounded-[15] flex-row items-center justify-center"}>
+                <View className={"bg-[" + statusColor + "] w-[80] p-[2px] rounded-[15] flex-row items-center justify-center"}>
                     <Text className="text-[#FFF] text-[0.9rem] font-medium">{status}</Text>
                 </View>
                 <Text className="text-[1.4rem]">{titulo}</Text>
