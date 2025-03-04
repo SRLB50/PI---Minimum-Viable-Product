@@ -33,15 +33,15 @@ const Modal: React.FC<ModalProps> = ({ handleCloseModal, dataService }) => {
           Serviço cadastrado com sucesso!
         </Text>
 
-        <View>
+        <View className="p-[20px]">
           <Text>Serviço: {dataService?.titulo}</Text>
           <Text>Descrição: {dataService?.descricao}</Text>
           <Text>Valor: {value}</Text>
         </View>
 
-        <View style={styles.buttonArea}>
-          <TouchableOpacity style={styles.button} onPress={() => handleCloseModal(false)}>
-            <Text >Voltar</Text>
+        <View>
+          <TouchableOpacity className="bg-[#7FCCFF] w-[150] p-[5] items-center justify-center rounded-[10px]" onPress={() => handleCloseModal(false)}>
+            <Text className="text-[#FFF]">Voltar</Text>
           </TouchableOpacity>
         </View>
 
@@ -72,27 +72,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "#000",
-    marginBottom: 24,
     textAlign: "center"
   },
 
   text: {
     color: "#FFF",
     fontWeight: 700
-  },
-  buttonArea: {
-    flexDirection: "row",
-    width: "90%",
-    marginTop: 8,
-    alignItems: "center",
-    justifyContent: "space-between"
-
-  },
-  button: {
-    flex: 1,
-    alignItems: "center",
-    marginTop: 14,
-    marginBottom: 14,
-    padding: 8
   }
 })
