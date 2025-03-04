@@ -4,15 +4,17 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native';
 import RegisterApi from './../service/registerServices'
+import Modal from "~/components/Template/Modal"
 
 type PropsAPI = {
   titulo: string
   valor: number,
-  id : number
+  id: number
 }
 
 const registerServices = () => {
   const [services, setServices] = useState<PropsAPI[]>([])
+  const [modal, setModal] = useState(true)
 
   const userPK = "00.981.551/0001-88"
 
@@ -30,22 +32,27 @@ const registerServices = () => {
 
   return (
     <SafeAreaView>
-      <View className='p-[20px]'>
-        <Text className='text-[1.7rem] font-medium'>Cadastrar Serviços</Text>
+      {
+        modal ? 
+          <Modal handleCloseModal={setModal} /> 
+        :
+          <View className='p-[20px]'>
+            <Text className='text-[1.7rem] font-medium'>Cadastrar Serviços</Text>
 
-        <Register setServices={setServices} />
+            <Register setServices={setServices} />
 
-        <ScrollView className='h-[37vh]'>
-          <View className='gap-[10]'>
+            <ScrollView className='h-[37vh]'>
+              <View className='gap-[10]'>
 
-            {services.length > 0 ?
-              services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} key={data.id} />))
-              : <Text>Ops... Não há serviços cadastrados!</Text>
-            }
+                {services.length > 0 ?
+                  services.map((data: PropsAPI, i) => (<ItemRegister title={data.titulo} value={data.valor} key={data.id} />))
+                  : <Text>Ops... Não há serviços cadastrados!</Text>
+                }
+              </View>
+            </ScrollView>
+
           </View>
-        </ScrollView>
-
-      </View>
+      }
     </SafeAreaView>
   )
 }

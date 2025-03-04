@@ -6,7 +6,9 @@ module.exports = {
     './screens/**/*.{js,ts,tsx}',
     './navigation/**/*.{js,ts,tsx}',
   ],
-
+  corePlugins: {
+    backgroundOpacity: true,
+  },
   presets: [require('nativewind/preset')],
   theme: {
     extend: {},
