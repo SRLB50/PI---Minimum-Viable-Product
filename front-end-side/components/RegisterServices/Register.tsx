@@ -33,9 +33,10 @@ type SetServicesProps = {
     dataService: React.Dispatch<React.SetStateAction<ServiceType | undefined>>
     setModal: React.Dispatch<React.SetStateAction<boolean>>,
     editService : ServiceType | undefined
+    remove : boolean
 };
 
-const Register = ({ setServices, setModal, dataService, editService }: SetServicesProps) => {
+const Register = ({ setServices, setModal, dataService, editService, remove }: SetServicesProps) => {
 
     const userPK = "00.981.551/0001-88"
 
@@ -75,6 +76,10 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
         
     }, [editService])
 
+    useEffect(() => {
+        clearEdit()
+    }, [remove])
+
     const submitService = handleSubmit(async () => {
 
         const {
@@ -102,16 +107,9 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
 
         if(successRegister)  {
             fetchAPI()
-            control._reset()
             setModal(true)
             dataService(registerServices)
-            setHasEdit(false)
-            setEdit({
-                titulo: "",
-                valor: 0,
-                id : 0,
-                descricao : ""
-            })
+            clearEdit()
         }
         else {
             alert("Erro ao cadastrar serviço!")
@@ -150,14 +148,7 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
 
         if(successRegister)  {
             fetchAPI()
-            control._reset()
-            setHasEdit(false)
-            setEdit({
-                titulo: "",
-                valor: 0,
-                id : 0,
-                descricao : ""
-            })
+            clearEdit()
             alert(registerServices.message)
         }
         else {

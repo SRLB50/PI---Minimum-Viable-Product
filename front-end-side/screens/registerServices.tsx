@@ -43,7 +43,7 @@ const registerServices = () => {
           <View className='p-[20px]'>
             <Text className='text-[1.7rem] font-medium'>Cadastrar Serviços</Text>
 
-            <Register editService={editService} setServices={setServices} setModal={setModal} dataService={setDataService} />
+            <Register remove={removeService} editService={editService} setServices={setServices} setModal={setModal} dataService={setDataService} />
 
             <ScrollView className='h-[37vh]'>
               <View className='gap-[10]'>
