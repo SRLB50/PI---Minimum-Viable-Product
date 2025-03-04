@@ -59,13 +59,19 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
     const [edit, setEdit] = useState<ServiceType>()
     const [hasEdit, setHasEdit] = useState<boolean>(false)
 
+    
     useEffect(() => {
-        setHasEdit(true)
-        setEdit(editService)
         
-        setValue("serviceDescription", editService?.descricao == undefined ? "" : editService?.descricao)
-        setValue("serviceType", editService?.titulo == undefined ? "" : editService?.titulo)
-        setValue("serviceValue", editService?.valor == undefined ? '0' : String(editService?.valor))
+        if (!['', undefined, null].includes(editService?.descricao)) {
+            setHasEdit(true)
+            setEdit(editService)
+            
+            setValue("serviceDescription", editService?.descricao == undefined ? "" : editService?.descricao)
+            setValue("serviceType", editService?.titulo == undefined ? "" : editService?.titulo)
+            setValue("serviceValue", editService?.valor == undefined ? '0' : String(editService?.valor))
+        }else{
+            setHasEdit(false)
+        }
         
     }, [editService])
 
@@ -99,6 +105,13 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
             control._reset()
             setModal(true)
             dataService(registerServices)
+            setHasEdit(false)
+            setEdit({
+                titulo: "",
+                valor: 0,
+                id : 0,
+                descricao : ""
+            })
         }
         else {
             alert("Erro ao cadastrar serviço!")
@@ -106,6 +119,7 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
     })
 
     const updateService = handleSubmit(async () => {
+        console.log('atualizando')
         const {
             serviceType,
             serviceValue,
@@ -113,20 +127,47 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
         } = control._formValues
 
         const id = edit?.id
-
-        alert(`
-            Novo título: ${serviceType}
-            Nova descrição: ${serviceDescription}
-            Novo Valor: R$ ${serviceValue}
-            ID : ${id}
-        `)
-
-        if ([serviceType, serviceValue, serviceDescription, id].includes("")) {
+        console.log(id)
+        if ([serviceType, serviceValue, serviceDescription].includes("")) {
             return false
         }
+
+        if (id == 0 || id == undefined) {
+            return false
+        }
+        const body: BodyServices = {
+            titulo: serviceType,
+            descricao: serviceDescription,
+            valor: serviceValue,
+            idUser: userPK
+        }
+
+        const instance = new RegisterApi.UpdateService(body, id)
+
+        const registerServices = await instance.execute()
+
+        const successRegister = registerServices.success
+
+        if(successRegister)  {
+            fetchAPI()
+            control._reset()
+            setHasEdit(false)
+            setEdit({
+                titulo: "",
+                valor: 0,
+                id : 0,
+                descricao : ""
+            })
+            alert(registerServices.message)
+        }
+        else {
+            alert("Erro ao cadastrar serviço!")
+        }
+        
     })
 
     const clearEdit = () => {
+        setHasEdit(false)
         control._reset()
         setEdit({
             titulo: "",
@@ -218,17 +259,12 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
                 )}
             </View>
             <View className="flex-row gap-[5]">
-                <TouchableOpacity className="bg-[#78CA25] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={hasEdit ? updateService :submitService}>
+                <TouchableOpacity className="bg-[#78CA25] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={hasEdit ? updateService : submitService}>
                     <Text className="text-[#FFF]">Salvar</Text>
                 </TouchableOpacity>
-
-                {
-                    hasEdit && (
-                        <TouchableOpacity className="bg-[#2C2C2C] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={clearEdit}>
-                            <Text className="text-[#FFF]">Limpar</Text>
-                        </TouchableOpacity>
-                    )
-                }
+                <TouchableOpacity className="bg-[#2C2C2C] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={clearEdit}>
+                    <Text className="text-[#FFF]">Limpar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

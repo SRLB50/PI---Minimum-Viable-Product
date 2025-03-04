@@ -100,7 +100,69 @@ class GetRegister{
     }
 }
 
+class UpdateService{
+    
+    body : BodyServices
+    id : number | undefined
+
+    constructor(body: BodyServices, id: number) {
+        this.body = body
+        this.id = id
+    }
+
+    #getBasicAuth() {
+        return btoa(``)
+    }
+
+    #getRequest() {
+        let header = new Headers();
+        // const auth = this.#getBasicAuth()
+        // header.append("Authorization", `Basic ${auth}`);
+        header.append("Content-Type", "application/json")
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: header,
+            body: JSON.stringify({
+                "titulo" : this.body.titulo,
+                "descricao": this.body.descricao,
+                "valor": this.body.valor
+            })
+        };
+
+        console.dir(requestOptions)
+        return requestOptions
+    }
+    async execute() {
+        try {
+            const requestOptions = this.#getRequest();
+
+            const response = await fetch(`${url}/services/update?idService=${this.id}&idUser=${this.body.idUser}`, requestOptions);
+
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            const data = {
+                success: true,
+                ...result
+            };
+
+            console.log(data)
+            return data;
+        } catch (error) {
+            console.error("Erro na execução:", error);
+            return {
+                success: false,
+                error: error
+            };
+        }
+    }
+}
+
 export default {
     RegisterServices, 
-    GetRegister
+    GetRegister,
+    UpdateService
 }
