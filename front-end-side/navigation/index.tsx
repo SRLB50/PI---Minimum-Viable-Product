@@ -4,11 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import TabNavigator from './tab-navigator';
 import Modal from '../screens/modal';
 import Login from '../screens/login';
+import Cadastro from '../screens/cadastro';
+import { RootStackParamList } from '~/types/types';
 
-export type RootStackParamList = {
-  TabNavigator: undefined;
-  Modal: undefined;
-};
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -19,6 +17,11 @@ export default function RootStack() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
           options={{ headerShown: false }}
         />
         <Stack.Screen

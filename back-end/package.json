@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch app.js"
+    "setup:ngrok": "ngrok config add-authtoken 2soXD8ByEUthogAuFfJhcx4wJij_4BGBQFcURv2a25DLNqG1J",
+    "dev": "node --watch app.js",
+    "startngrok": "ngrok http 3000"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "ngrok": "^5.0.0-beta.2",
     "sequelize-cli": "^6.6.2"
   }
 }

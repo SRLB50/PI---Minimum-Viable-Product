@@ -1,8 +1,8 @@
 const fastify = require('fastify')({ logger: true });
 const Sequelize = require('sequelize');
 const models = require('./models');
-const clientService = require('./services/clienteService');
-const empresaService = require('./services/empresaService');
+const cliente = require('./services/clienteService');
+const empresa = require('./services/empresaService');
 const servico = require('./services/servicoService');
 const servicoAgendado = require('./services/servicoAgendadoService');
 const authService = require("./services/authService")
@@ -13,6 +13,13 @@ models.sequelize.sync().then(() => {
 }).catch(err => {
   console.error('Erro ao conectar no banco:', err);
 });
+
+
+//Rota cadastro de clientes
+fastify.post('/user/create' , async(request , reply) => cliente.createClient(request , reply))
+
+//Rota cadastro de empresas
+fastify.post('/company/create' , async(request , reply) => empresa.createCompany(request , reply))
 
 // Rotas de serviços
 fastify.get('/services', async(request, reply) => servico.getService(request, reply))

@@ -31,11 +31,16 @@
       "~/*": [
         "*"
       ]
-    }
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types" 
+    ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "env.d.ts"
   ]
 }

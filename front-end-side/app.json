@@ -3,28 +3,29 @@
     "name": "front-end",
     "slug": "front-end",
     "version": "1.0.0",
-
+    "extra": {
+      "API_URL": "T7D6uGIXMg41tZ3v02m5UEi+NvvM6+mBOPmRcuxFeGxbXaOq+XwxXbUlTg3tyOI8cG0g8TqwwErdB4c4xkQf+BDt0UB+DFsGbtnOhA3/oGA=",
+      "API_KEY": "a50d47ded82d0a4e01e9727fb27ae15e2de29774440cd4fb8194674025c14622",
+      "API_IV": "03cc8f8ef6443718dd662be94def6c6d"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-
     "experiments": {
       "tsconfigPaths": true
     },
-
     "plugins": [],
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
