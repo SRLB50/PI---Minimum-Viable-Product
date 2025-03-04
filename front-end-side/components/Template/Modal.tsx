@@ -5,7 +5,7 @@ type PropsAPI = {
   titulo: string
   valor: number,
   id: number,
-  description: string
+  descricao: string
 }
 
 interface ModalProps {
@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ handleCloseModal, dataService }) => {
 
         <View>
           <Text>Serviço: {dataService?.titulo}</Text>
-          <Text>Descrição: {dataService?.description}</Text>
+          <Text>Descrição: {dataService?.descricao}</Text>
           <Text>Valor: {value}</Text>
         </View>
 

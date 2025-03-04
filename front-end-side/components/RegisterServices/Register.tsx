@@ -3,7 +3,7 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import RegisterApi from './../../service/registerServices'
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 const registerSchema = z.object({
     serviceType: z.string().min(1, "Tipo de Serviço é Obrigatório").max(40, "Serviço Inválido"),
@@ -24,23 +24,27 @@ type ServiceType = {
     titulo: string
     valor: number
     id : number
-    description : string
+    descricao : string
 };
+
 
 type SetServicesProps = {
     setServices: React.Dispatch<React.SetStateAction<ServiceType[]>>
     dataService: React.Dispatch<React.SetStateAction<ServiceType | undefined>>
-    setModal: React.Dispatch<React.SetStateAction<boolean>>
+    setModal: React.Dispatch<React.SetStateAction<boolean>>,
+    editService : ServiceType | undefined
 };
 
-const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
+const Register = ({ setServices, setModal, dataService, editService }: SetServicesProps) => {
 
     const userPK = "00.981.551/0001-88"
 
     const {
         control,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
+        setValue,
+        register
     } = useForm<ServicesFormData>(
         {
             resolver: zodResolver(registerSchema),
@@ -51,6 +55,19 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
             }
         }
     )
+
+    const [edit, setEdit] = useState<ServiceType>()
+    const [hasEdit, setHasEdit] = useState<boolean>(false)
+
+    useEffect(() => {
+        setHasEdit(true)
+        setEdit(editService)
+        
+        setValue("serviceDescription", editService?.descricao == undefined ? "" : editService?.descricao)
+        setValue("serviceType", editService?.titulo == undefined ? "" : editService?.titulo)
+        setValue("serviceValue", editService?.valor == undefined ? '0' : String(editService?.valor))
+        
+    }, [editService])
 
     const submitService = handleSubmit(async () => {
 
@@ -88,6 +105,37 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
         }
     })
 
+    const updateService = handleSubmit(async () => {
+        const {
+            serviceType,
+            serviceValue,
+            serviceDescription
+        } = control._formValues
+
+        const id = edit?.id
+
+        alert(`
+            Novo título: ${serviceType}
+            Nova descrição: ${serviceDescription}
+            Novo Valor: R$ ${serviceValue}
+            ID : ${id}
+        `)
+
+        if ([serviceType, serviceValue, serviceDescription, id].includes("")) {
+            return false
+        }
+    })
+
+    const clearEdit = () => {
+        control._reset()
+        setEdit({
+            titulo: "",
+            valor: 0,
+            id : 0,
+            descricao : ""
+        })
+    }
+
     const fetchAPI = async () => {
         const instance = new RegisterApi.GetRegister(userPK)
 
@@ -107,6 +155,7 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
                     render={({ field: { onChange, value } }) => (
                         <TextInput
                             value={value}
+                            {...register("serviceType")}
                             onChangeText={onChange}
                             placeholder="Digite o tipo de serviço"
                             placeholderTextColor="#A0A0A0"
@@ -127,6 +176,7 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
                     control={control}
                     render={({ field: { onChange, value } }) => (
                         <TextInput
+                            {...register("serviceValue")}
                             value={value}
                             onChangeText={onChange}
                             keyboardType="numeric"
@@ -150,6 +200,7 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
                     control={control}
                     render={({ field: { onChange, value } }) => (
                         <TextInput
+                        {...register("serviceDescription")}
                             value={value}
                             onChangeText={onChange}
                             placeholder="Descreva o serviço"
@@ -166,10 +217,18 @@ const Register = ({ setServices, setModal, dataService }: SetServicesProps) => {
                     </Text>
                 )}
             </View>
-            <View>
-                <TouchableOpacity className="bg-[#78CA25] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={submitService}>
+            <View className="flex-row gap-[5]">
+                <TouchableOpacity className="bg-[#78CA25] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={hasEdit ? updateService :submitService}>
                     <Text className="text-[#FFF]">Salvar</Text>
                 </TouchableOpacity>
+
+                {
+                    hasEdit && (
+                        <TouchableOpacity className="bg-[#2C2C2C] w-[150] p-[5] rounded-[10px] flex-row justify-center items-center" onPress={clearEdit}>
+                            <Text className="text-[#FFF]">Limpar</Text>
+                        </TouchableOpacity>
+                    )
+                }
             </View>
         </View>
     )
