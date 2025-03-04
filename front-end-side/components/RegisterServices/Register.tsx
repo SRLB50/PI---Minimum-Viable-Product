@@ -119,7 +119,7 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
     })
 
     const updateService = handleSubmit(async () => {
-        console.log('atualizando')
+
         const {
             serviceType,
             serviceValue,
@@ -127,7 +127,7 @@ const Register = ({ setServices, setModal, dataService, editService }: SetServic
         } = control._formValues
 
         const id = edit?.id
-        console.log(id)
+
         if ([serviceType, serviceValue, serviceDescription].includes("")) {
             return false
         }

@@ -10,7 +10,7 @@ type PropsAPI = {
   titulo: string
   valor: number,
   id: number,
-  descricao : string
+  descricao: string
 }
 
 const registerServices = () => {
@@ -18,6 +18,7 @@ const registerServices = () => {
   const [modal, setModal] = useState(false)
   const [dataService, setDataService] = useState<PropsAPI>()
   const [editService, setEditService] = useState<PropsAPI>()
+  const [removeService, setRemoveService] = useState<boolean>(false)
 
   const userPK = "00.981.551/0001-88"
 
@@ -31,14 +32,14 @@ const registerServices = () => {
 
   useEffect(() => {
     fetchAPI()
-  }, [])
+  }, [removeService])
 
   return (
     <SafeAreaView>
       {
-        modal ? 
-          <Modal handleCloseModal={setModal} dataService={dataService}  /> 
-        :
+        modal ?
+          <Modal handleCloseModal={setModal} dataService={dataService} />
+          :
           <View className='p-[20px]'>
             <Text className='text-[1.7rem] font-medium'>Cadastrar Serviços</Text>
 
@@ -47,9 +48,10 @@ const registerServices = () => {
             <ScrollView className='h-[37vh]'>
               <View className='gap-[10]'>
 
-                {services.length > 0 ?
-                  services.map((data: PropsAPI, i) => (<ItemRegister editService={setEditService} title={data.titulo} value={data.valor} description={data.descricao} id={data.id} key={data.id} />))
-                  : <Text>Ops... Não há serviços cadastrados!</Text>
+                {
+                  services.length > 0 ?
+                    services.map((data: PropsAPI, i) => (<ItemRegister status={removeService} removeService={setRemoveService} companyId={userPK} editService={setEditService} title={data.titulo} value={data.valor} description={data.descricao} id={data.id} key={data.id} />))
+                    : <Text>Ops... Não há serviços cadastrados!</Text>
                 }
               </View>
             </ScrollView>

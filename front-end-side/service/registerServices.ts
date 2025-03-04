@@ -15,14 +15,8 @@ class RegisterServices {
         this.body = body
     }
 
-    #getBasicAuth() {
-        return btoa(``)
-    }
-
     #getRequest() {
         let header = new Headers();
-        // const auth = this.#getBasicAuth()
-        // header.append("Authorization", `Basic ${auth}`);
         header.append("Content-Type", "application/json")
 
         const body = JSON.stringify(this.body);
@@ -49,7 +43,6 @@ class RegisterServices {
                 ...result
             };
 
-            console.log(data)
             return data;
         } catch (error) {
             console.error("Erro na execução:", error);
@@ -68,14 +61,9 @@ class GetRegister{
     constructor(pkUser:string){
         this.pkUser = pkUser
     }
-    // #getBasicAuth() {
-    //     return btoa(`${user}:${password}`)
-    // }
 
     #getRequest() {
         let header = new Headers();
-        // const auth = this.#getBasicAuth()
-        // header.append("Authorization", `Basic ${auth}`);
         header.append("Content-Type", "application/json")
 
         const requestOptions = {
@@ -110,14 +98,8 @@ class UpdateService{
         this.id = id
     }
 
-    #getBasicAuth() {
-        return btoa(``)
-    }
-
     #getRequest() {
         let header = new Headers();
-        // const auth = this.#getBasicAuth()
-        // header.append("Authorization", `Basic ${auth}`);
         header.append("Content-Type", "application/json")
 
         const requestOptions = {
@@ -130,7 +112,6 @@ class UpdateService{
             })
         };
 
-        console.dir(requestOptions)
         return requestOptions
     }
     async execute() {
@@ -149,7 +130,53 @@ class UpdateService{
                 ...result
             };
 
-            console.log(data)
+            return data;
+        } catch (error) {
+            console.error("Erro na execução:", error);
+            return {
+                success: false,
+                error: error
+            };
+        }
+    }
+}
+
+class RemoveService{
+    
+    id : number
+    idUser : string
+    constructor(id:number, idUser: string){
+        this.id = id
+        this.idUser = idUser
+    }
+
+    #getRequest() {
+        let header = new Headers();
+        header.append("Content-Type", "application/json")
+
+        const requestOptions = {
+            method: 'DELETE',
+            headers: header
+        };
+
+        return requestOptions
+    }
+    async execute() {
+        try {
+            const requestOptions = this.#getRequest();
+
+            const response = await fetch(`${url}/services/remove?idService=${this.id}&idEmpresa=${this.idUser}`, requestOptions);
+
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            const data = {
+                success: true,
+                ...result
+            };
+
             return data;
         } catch (error) {
             console.error("Erro na execução:", error);
@@ -164,5 +191,6 @@ class UpdateService{
 export default {
     RegisterServices, 
     GetRegister,
-    UpdateService
+    UpdateService,
+    RemoveService
 }

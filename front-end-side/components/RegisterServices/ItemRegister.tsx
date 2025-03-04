@@ -1,6 +1,7 @@
 import { TabBarIcon } from '@components/Template/TabBarIcon'
 import React, { useEffect, useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
+import registerServices from '~/service/registerServices';
 
 
 type ServiceType = {
@@ -16,9 +17,12 @@ type ItemRegisterProps = {
     description : string
     id : number
     editService : React.Dispatch<React.SetStateAction<ServiceType | undefined>>
+    removeService : React.Dispatch<React.SetStateAction<boolean>>
+    companyId : string
+    status : boolean
 }
 
-const ItemRegister = ({ title, value, description, id, editService }: ItemRegisterProps) => {
+const ItemRegister = ({ title, value, description, id, editService, companyId, removeService, status }: ItemRegisterProps) => {
     const [formattValue, setFormattValue] = useState('')
 
     useEffect(() => {
@@ -30,8 +34,18 @@ const ItemRegister = ({ title, value, description, id, editService }: ItemRegist
         setFormattValue(newValue)
     }, [])
 
-    const removeService = (id:number) => {
-        console.log(id)
+    const sendRemoveService = async (id:number) => {
+        
+        if ([undefined, null, 0].includes(id)) {
+            return false
+        }
+        
+        const instance = new registerServices.RemoveService(id, companyId)
+        const removeServiceAPI = await instance.execute()
+
+        removeService(!status)
+        alert(JSON.stringify(removeServiceAPI))
+
     }
 
     const handleEditService = ( title:string, value:number, description: string, id: number) => {
@@ -65,7 +79,7 @@ const ItemRegister = ({ title, value, description, id, editService }: ItemRegist
                     <TabBarIcon name='pencil-square-o' color='#FFAF30' />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => removeService(id)}>
+                <TouchableOpacity onPress={() => sendRemoveService(id)}>
                     <TabBarIcon name='trash-o' color='#FF4747' />
                 </TouchableOpacity>
             </View>
