@@ -10,8 +10,8 @@ import { Alert, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { RootStackParamList } from '~/types/types'
-
 type NavigationProps = StackNavigationProp<RootStackParamList, 'Cadastro'>;
+import { getApiUrl } from '~/utils/decrypt';
 
 const Cadastro = () => {
 
@@ -32,12 +32,15 @@ const Cadastro = () => {
 
     const onSubmit = async (data: any) => {
 
+        const apiUrl = getApiUrl();
+        console.log('API URL:', apiUrl);
         console.log('Dados a serem enviados:', JSON.stringify(data, null, 2));
         const { confirmarSenha, ...dataToSend } = data;
-        console.log('Dados finais enviados:' , dataToSend);
-    
+        !isClient ? delete dataToSend.cpf : dataToSend;
+        console.log('Dados a serem enviados:', JSON.stringify(dataToSend, null, 2));
+
         try {
-            const response = await fetch(isClient ? 'https://6f63-2804-4b0-1335-9700-1064-61d2-fbdc-e288.ngrok-free.app/user/create' : 'https://6f63-2804-4b0-1335-9700-1064-61d2-fbdc-e288.ngrok-free.app/company/create', {
+            const response = await fetch(isClient ? `${apiUrl}/user/create` : `${apiUrl}/company/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -53,9 +56,14 @@ const Cadastro = () => {
                 const errorData = await response.json();
                 Alert.alert('Erro ao cadastrar usuário', errorData.message || 'Tente novamente mais tarde');
             }
-        } catch (error) {
-            console.error('Erro ao cadastrar usuário', error);
-            Alert.alert('Erro ao cadastrar usuário', 'Tente novamente mais tarde');
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                console.error('Erro ao cadastrar usuário', error.message);
+                Alert.alert('Erro ao cadastrar usuário', error.message);
+            } else {
+                console.error('Erro ao cadastrar usuário', String(error));
+                Alert.alert('Erro ao cadastrar usuário', 'Erro desconhecido');
+            }
         }
     };
 

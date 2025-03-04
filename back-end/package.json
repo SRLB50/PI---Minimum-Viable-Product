@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup:ngrok": "ngrok config add-authtoken 2soXD8ByEUthogAuFfJhcx4wJij_4BGBQFcURv2a25DLNqG1J",
-    "dev": "FOR /F \"tokens=5\" %P IN ('netstat -aon ^| findstr LISTENING ^| findstr :') DO (SET PORT=%P) && node --watch app.js & ngrok http %PORT%"
+    "dev": "node --watch app.js",
+    "startngrok": "ngrok http 3000"
   },
   "keywords": [],
   "author": "",
