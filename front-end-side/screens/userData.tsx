@@ -20,7 +20,7 @@ const companySchema = z.object({
 
 type CompanyFormData = z.infer<typeof companySchema>;
 
-const CompanyData = () => {
+const UserData = () => {
   const {
     control,
     formState: { errors },
@@ -44,7 +44,7 @@ const CompanyData = () => {
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View className="mt-12 px-6">
-          <Text className="mb-8 text-2xl font-medium">Dados da Empresa</Text>
+          <Text className="mb-8 text-2xl font-medium">Dados do Usuário</Text>
 
           <InputField control={control} name="name" placeholder="Nome" errors={errors} />
 
@@ -56,7 +56,7 @@ const CompanyData = () => {
             keyboardType="email-address"
           />
 
-          <InputField control={control} name="cnpj" placeholder="CNPJ" errors={errors} />
+          <InputField control={control} name="cpf" placeholder="CPF" errors={errors} />
 
           <InputField
             control={control}
@@ -100,4 +100,4 @@ const CompanyData = () => {
   );
 };
 
-export default CompanyData;
+export default UserData;

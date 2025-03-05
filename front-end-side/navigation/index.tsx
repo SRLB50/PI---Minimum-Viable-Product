@@ -16,11 +16,7 @@ export default function RootStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="TabNavigator">
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen
           name="TabNavigator"
           component={TabNavigator}

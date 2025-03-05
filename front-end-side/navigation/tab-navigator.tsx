@@ -6,8 +6,9 @@ import { HeaderButton } from '../components/Template/HeaderButton';
 import { TabBarIcon } from '../components/Template/TabBarIcon';
 import One from '../screens/one';
 import Two from '../screens/two';
-import home from '~/screens/home';
+import Home from '~/screens/home';
 import CompanyData from '~/screens/companyData';
+import UserData from '~/screens/userData';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,18 +38,26 @@ export default function TabLayout({ navigation }: Props) {
         }}
       /> */}
       <Tab.Screen
-        name="home"
-        component={home}
+        name="Home"
+        component={Home}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name="CompanyData"
+        name="Dados da empresa"
         component={CompanyData}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="briefcase" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Usuário"
+        component={UserData}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
           headerShown: false,
         }}
       />
