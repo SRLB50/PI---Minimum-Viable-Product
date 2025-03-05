@@ -15,26 +15,18 @@ function RootStack() {
 
   return (
     <Stack.Navigator>
-      {isAuthenticated ? (
-        <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
-          options={{ headerShown: false }}
-        />
-      ) : (
-        <>
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Cadastro"
-            component={Cadastro}
-            options={{ headerShown: false }}
-          />
-        </>
-      )}
+      {
+        isAuthenticated ? (
+          <Stack.Screen name="TabNavigator" component={TabNavigator} options={{ headerShown: false }} />
+        ) : 
+        (
+          <>
+            <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+            <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} />
+          </>
+        )
+      }
+
       <Stack.Screen
         name="Modal"
         component={Modal}

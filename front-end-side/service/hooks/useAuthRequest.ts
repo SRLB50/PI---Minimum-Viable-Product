@@ -56,10 +56,10 @@ export const useAuthRequest = () => {
 
       if (response) {
         // Salva o token e redireciona
-        login(response.data.token, "6000000")
-        navigation.navigate('TabNavigator', {
-          screen: 'home'
-        })
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        login(response.data.token, `${tomorrow}`)
       }
     } catch (error: any) {
       throw new Error(error);
