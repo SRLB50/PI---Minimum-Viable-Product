@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 
-import { RootStackParamList } from '.';
+import { RootStackParamList } from "~/types/types";
 import { HeaderButton } from '../components/Template/HeaderButton';
 import { TabBarIcon } from '../components/Template/TabBarIcon';
 import One from '../screens/one';

@@ -11,6 +11,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "~/types/types";
+//hook
+import { useAuthRequest } from "~/service/hooks/useAuthRequest";
 
 // Schema de validação
 const loginSchema = z.object({
@@ -30,6 +32,7 @@ type NavigationProps = StackNavigationProp<RootStackParamList, 'Login'>;
 const LoginScreen = () => {
   // const router = useRouter();
 
+  const { onSubmit } = useAuthRequest()
   const { 
     control, 
     handleSubmit, 
@@ -45,16 +48,12 @@ const LoginScreen = () => {
   const handleLogin = async (data: LoginFormData) => {
     try {
       // Aqui você pode adicionar sua lógica de autenticação
-      return false
+      onSubmit(data)
       // await AsyncStorage.setItem('token', 'teste');
       // router.replace("/(tabs)");
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const handleRegister = () => {
-    //router.push("/register");
   };
 
   const navigation = useNavigation<NavigationProps>();

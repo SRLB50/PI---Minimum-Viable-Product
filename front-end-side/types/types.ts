@@ -1,7 +1,7 @@
 export type RootStackParamList = {
     Cadastro: undefined;
     Login: undefined;
-    TabNavigator: undefined;
+    TabNavigator: { screen?: string };
     Modal: undefined;
 };
   

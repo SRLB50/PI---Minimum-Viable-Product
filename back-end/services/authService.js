@@ -1,71 +1,52 @@
-// const models = require('../models');
-// const menstruacao = require("./cicloMenstrualService")
-// const bcrypt = require("bcryptjs")
-// const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { Empresa, Cliente } = require("../models");
 
-// const login = async (request, reply) => {
-//     const { login, password } = request.body
-//     try {
-//         const users = await models.Usuario.findAll({
-//             where: {
-//                 email: login
-//             }
-//         })
+const secret = "seu_segredo_secreto"; // Coloque isso no .env
 
-//         if (users.length > 0) {
-//             const isMatch = await bcrypt.compare(password, users[0].senha)
+async function autenticarUsuario(email, senha) {
+	let usuario = await Empresa.findOne({ where: { email } });
+	if (!usuario) {
+		usuario = await Cliente.findOne({ where: { email } });
+		if (!usuario) {
+			throw new Error("Usuário não encontrado");
+		}
+	}
 
-//             if (isMatch) {
-//                 const ciclo = await menstruacao.getCicloMenstrual(users[0].id)
+	const senhaValida = await bcrypt.compare(senha, usuario.senha);
+	if (!senhaValida) {
+		throw new Error("Senha incorreta");
+	}
 
-//                 const dados_usuario = new LoginUser(users, ciclo).returnData()
+	const token = jwt.sign(
+		{
+			id: usuario.cnpj || usuario.cpf,
+			tipo: usuario.cnpj ? "empresa" : "cliente",
+		},
+		secret,
+		{ expiresIn: "1h" }
+	);
 
-//                 reply.send({ response: "Seja bem-vindo!", dados_usuario })
-//             } else {
-//                 reply.status(400).send({ error: "Usuário não encontrado!" })
-//             }
-//         } else {
-//             reply.status(400).send({ error: "Usuário não encontrado!" })
-//         }
-//     } catch (error) {
-//         reply.status(500).send({ erro: error.toString() })
-//     }
-// }
+	return { usuario, token };
+}
 
-// class LoginUser {
-//     constructor(user, ciclo) {
-//         this.user = user
-//         this.ciclo = ciclo
-//     }
+async function login(req, res) {
+	try {
+		const { email, senha } = req.body;
+		if (!email || !senha) {
+			return res
+				.status(400)
+				.send({ error: "E-mail e senha são obrigatórios" });
+		}
 
-//     #dataUser() {
-//         const nextCiclo = menstruacao.getProxCiclo(String(this.ciclo[0].fim))
+		const { usuario, token } = await autenticarUsuario(email, senha);
 
-//         const { nome, email, id, data_nascimento } = this.user[0]
+		return res.send({ usuario: { nome: usuario.nome }, token });
+	} catch (error) {
+		return res
+			.status(401)
+			.send({ error: "Unauthorized", message: error.message });
+	}
+}
 
-//         const jwtObj = {
-//             id,
-//             nome,
-//             email,
-//             data_nascimento,
-//             ciclo: nextCiclo
-//         }
-
-//         const token = jwt.sign(jwtObj, "secretIdForMyJWTTokenToSecurityBackEnd", {
-//             expiresIn: '3h'
-//         })
-
-//         return {
-//             token
-//         }
-//     }
-
-//     returnData() {
-//         return this.#dataUser()
-//     }
-
-// }
-
-// module.exports = {
-//     login
-// };
+module.exports = { autenticarUsuario, login };
