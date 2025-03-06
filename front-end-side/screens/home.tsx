@@ -6,7 +6,7 @@ import Servico from "@components/Home/Servico";
 import { View, Text, ScrollView } from "react-native";
 
 const home = () => {
-  const validateTypeUser:string = "cliente"
+  const validateTypeUser:string = "prestador"
 
 
   return (validateTypeUser == "prestador" ? <HomePrestador services={servicesAPI()} /> : <HomeCliente />)
