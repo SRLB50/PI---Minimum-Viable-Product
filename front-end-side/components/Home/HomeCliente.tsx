@@ -5,7 +5,7 @@ import ServicoCliente from "./ServicoCliente";
 const HomeCliente = () => {
     return (
         <View className="container flex-1 bg-[#EDEDED]">
-            <Header name="José" />
+            <Header />
 
             <View className="p-[25px] ">
                 <View className="my-[25]">

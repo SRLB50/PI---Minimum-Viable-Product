@@ -1,5 +1,6 @@
 // types/types.ts
 import { NavigatorScreenParams } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 export type TabParamList = {
   home: undefined;
@@ -15,3 +16,5 @@ export type RootStackParamList = {
   TabNavigator: NavigatorScreenParams<TabParamList>; // Usando NavigatorScreenParams para garantir a navegação correta dentro do TabNavigator
   Modal: undefined;
 };
+
+export type RootStackNavigationProp = StackNavigationProp<RootStackParamList>;

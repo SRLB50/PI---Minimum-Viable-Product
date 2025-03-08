@@ -42,5 +42,5 @@
     "**/*.tsx",
     "nativewind-env.d.ts",
     "env.d.ts"
-  ]
+, "utils/backHandler.tsx"  ]
 }

@@ -18,7 +18,7 @@ type HomePrestadorProps = {
 const HomePrestador = ({services}: HomePrestadorProps) => {
   return (
     <View className="container flex-1 bg-[#EDEDED]">
-      <Header name="Jean" />
+      <Header />
 
       <View className="p-[25px] ">
         <View className="flex-row justify-between">

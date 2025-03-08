@@ -57,7 +57,12 @@ export const useAuthRequest = () => {
         // Salva o token e redireciona
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-        login(response.data.token, `${tomorrow}`, String(response.data.usuario.empresa), response.data.usuario.email)
+        login(
+          response.data.token, 
+          `${tomorrow}`, String(response.data.usuario.empresa), 
+          response.data.usuario.email, 
+          response.data.usuario.nome
+        )
       }
     } catch (error: any) {
       console.log(error, 'error')

@@ -14,6 +14,8 @@ import CustomInput from '@components/Template/CustomInput';
 
 //utils
 import { getApiUrl } from '~/utils/decrypt';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useBackHandler } from '~/utils/backHandler';
 
 const Profile = () => {
   const [showProfile, setShowProfile] = useState<boolean>(true);
@@ -112,6 +114,9 @@ const Profile = () => {
         });
     }
   };
+
+  // Usando opção "voltar" nativa do aparelho
+  useBackHandler(showProfile);
 
   return (
     <ScrollView>

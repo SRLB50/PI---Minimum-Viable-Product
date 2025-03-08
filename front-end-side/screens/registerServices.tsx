@@ -5,6 +5,8 @@ import { View, Text, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native';
 import RegisterApi from './../service/registerServices'
 import Modal from "~/components/Template/Modal"
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const jwt_decode = require('jwt-decode');
 
 type PropsAPI = {
   titulo: string
@@ -19,8 +21,7 @@ const registerServices = () => {
   const [dataService, setDataService] = useState<PropsAPI>()
   const [editService, setEditService] = useState<PropsAPI>()
   const [removeService, setRemoveService] = useState<boolean>(false)
-
-  const userPK = "00.981.551/0001-88"
+  const [userPK, setUserPK] = useState<string>('') 
 
   const fetchAPI = async () => {
     const instance = new RegisterApi.GetRegister(userPK)
@@ -31,8 +32,29 @@ const registerServices = () => {
   }
 
   useEffect(() => {
-    fetchAPI()
-  }, [removeService])
+    const fetchUserId = async () => {
+      try {
+        const token = await AsyncStorage.getItem('token');
+        if (token) {
+          // @ts-ignore
+          const tokenDecoded: any = jwt_decode(token);
+          const pk = String(tokenDecoded?.id);
+          console.log(pk, 'pkjkkkkkkkkkk')
+          setUserPK(pk);
+        }
+      } catch (error) {
+        console.error("Erro ao decodificar o token:", error);
+      }
+    };
+
+    fetchUserId();
+  }, []);
+
+  useEffect(() => {
+    if(userPK) {
+      fetchAPI()
+    }
+  }, [removeService, userPK])
 
   return (
     <SafeAreaView>
