@@ -34,12 +34,23 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     };
 
     checkAuth();
+
+    return () => {
+      AsyncStorage.removeItem('token');
+      AsyncStorage.removeItem('expire');
+      AsyncStorage.removeItem('empresa');
+      AsyncStorage.removeItem('email');
+    }
   }, []);
 
-  const login = async (token: string, expire: string) => {
+  const login = async (token: string, expire: string, empresa:string, email: string) => {
+
     if (isTokenValid(expire) && token) {
+
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('expire', expire);
+      await AsyncStorage.setItem('empresa', empresa);
+      await AsyncStorage.setItem('email', email);
       setIsAuthenticated(true);
       return true;
     }
@@ -50,38 +61,15 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   const logout = async () => {
     await AsyncStorage.removeItem('token');
     await AsyncStorage.removeItem('expire');
+    await AsyncStorage.removeItem('empresa');
+    await AsyncStorage.removeItem('email');
     setIsAuthenticated(false);
-  };
-
-  const refreshToken = async () => {
-    try {
-      const currentToken = await AsyncStorage.getItem('token');
-      if (!currentToken) return false;
-
-      const response = await fetch('https://seu-servidor.com/refresh-token', {
-        headers: {
-          Authorization: currentToken,
-        },
-      });
-
-      if (response.ok) {
-        const { newToken, expire } = await response.json();
-        return await login(newToken, expire);
-      }
-
-      return false;
-    } catch (error) {
-      console.error('Token refresh error:', error);
-      await logout();
-      return false;
-    }
   };
 
   const value = {
     isAuthenticated,
     login,
     logout,
-    refreshToken,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

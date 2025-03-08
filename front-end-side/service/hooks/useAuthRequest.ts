@@ -24,7 +24,6 @@ export const useAuthRequest = () => {
   // const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false)
   const apiUrl = getApiUrl();
-  const navigation = useNavigation<NavigationProps>();
 
   const generateHeaders = () => {
     return {
@@ -58,30 +57,11 @@ export const useAuthRequest = () => {
         // Salva o token e redireciona
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-
-        login(response.data.token, `${tomorrow}`)
+        login(response.data.token, `${tomorrow}`, String(response.data.usuario.empresa), response.data.usuario.email)
       }
     } catch (error: any) {
+      console.log(error, 'error')
       throw new Error(error);
-      // if (axios.isAxiosError(error)) {
-      //   if (error.response?.status === 401) {
-      //     setError("root", {
-      //       type: "manual",
-      //       message: "Usuário ou senha inválidos",
-      //     })
-      //   } else {
-      //     setError("root", {
-      //       type: "manual",
-      //       message: error.response?.data.mensagem,
-      //     })
-      //   }
-      // } else {
-      //   setError("root", {
-      //     type: "manual",
-      //     message: "Erro ao fazer login. Tente novamente.",
-      //   })
-      // }
-
     } finally {
       setIsSubmitting(false)
     }

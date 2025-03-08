@@ -6,8 +6,10 @@ const secret = "seu_segredo_secreto"; // Coloque isso no .env
 
 async function autenticarUsuario(email, senha) {
 	let usuario = await Empresa.findOne({ where: { email } });
+	let isCompany = true;
 	if (!usuario) {
 		usuario = await Cliente.findOne({ where: { email } });
+		isCompany = false;
 		if (!usuario) {
 			throw new Error("Usuário não encontrado");
 		}
@@ -27,7 +29,7 @@ async function autenticarUsuario(email, senha) {
 		{ expiresIn: "1h" }
 	);
 
-	return { usuario, token };
+	return { usuario, isCompany, token };
 }
 
 async function login(req, res) {
@@ -39,9 +41,9 @@ async function login(req, res) {
 				.send({ error: "E-mail e senha são obrigatórios" });
 		}
 
-		const { usuario, token } = await autenticarUsuario(email, senha);
+		const { usuario, isCompany, token } = await autenticarUsuario(email, senha);
 
-		return res.send({ usuario: { nome: usuario.nome }, token });
+		return res.send({ usuario: { nome: usuario.nome, email: usuario.email, empresa: isCompany }, token });
 	} catch (error) {
 		return res
 			.status(401)

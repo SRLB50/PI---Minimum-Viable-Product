@@ -9,6 +9,7 @@ interface CustomInputProps extends TextInputProps {
     control: Control<any>;
     rules?: RegisterOptions;
     secureTextEntry?: boolean;
+    disabled?: boolean
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({ 
@@ -18,6 +19,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
     control, 
     rules,
     secureTextEntry,
+    disabled,
     ...props 
 }) => {
 
@@ -41,7 +43,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
                   onChangeText={onChange}
                   value={value}
                   secureTextEntry={secureTextEntry}
-                  className={`text-xl border border-inputBorder rounded-xl px-4 py-2 ${emptyInput ? ' color-inputText' : 'color-inputLabelText'}`}
+                  editable={!disabled}
+                  className={`text-xl border border-inputBorder rounded-xl px-4 py-2 ${emptyInput ? ' color-inputText' : 'color-inputLabelText'} ${disabled && "bg-gray-300"}`}
                   {...props}
               />
               {error && (

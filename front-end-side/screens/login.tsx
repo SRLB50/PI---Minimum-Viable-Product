@@ -49,8 +49,6 @@ const LoginScreen = () => {
     try {
       // Aqui você pode adicionar sua lógica de autenticação
       onSubmit(data)
-      // await AsyncStorage.setItem('token', 'teste');
-      // router.replace("/(tabs)");
     } catch (error) {
       console.error(error);
     }

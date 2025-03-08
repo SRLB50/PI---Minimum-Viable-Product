@@ -1,4 +1,4 @@
-const {Empresa, Endereco, sequelize} = require('../models');
+const {Empresa, Endereco, ServicoAgendado, sequelize} = require('../models');
 
 const createCompany = async (request, reply) => {
   const { cnpj, nome, email, telefone, enderecos, senha } = request.body;
@@ -47,6 +47,65 @@ const createCompany = async (request, reply) => {
   }
 }
 
+const getCompanyData = async (request, reply) => {
+  const { email } = request.query;
+
+  try {
+    const empresa = await Empresa.findOne({
+      where: { email: email }, // Buscando a empresa pelo email
+      include: [
+        {
+          model: Endereco,
+          as: 'enderecos', // Inclui os endereços da empresa
+        }
+      ]
+    });
+
+    if (empresa) {
+      // Se a empresa for encontrada, retornamos os dados completos
+      return reply.send(empresa);
+    } else {
+      return reply.status(404).send({ message: 'Empresa não encontrada' });
+    }
+  } catch (error) {
+    console.error(error);
+    return reply.status(500).send({ message: 'Erro ao buscar dados da empresa' });
+  }
+};
+
+const getCompanyServices = async (request, reply) => {
+  const { email } = request.params;
+
+  try {
+    const empresa = await Empresa.findOne({
+      where: { email: email }, // Buscando a empresa pelo email
+      include: [
+        {
+          model: ServicoAgendado,
+          as: 'ServicoAgendado', // Inclui os serviços agendados da empresa
+        }
+      ]
+    });
+
+    if (empresa) {
+      // Se a empresa for encontrada, retornamos apenas os serviços agendados
+      const servicos = empresa.ServicoAgendado;
+      if (servicos && servicos.length > 0) {
+        return reply.send(servicos);
+      } else {
+        return reply.status(404).send({ message: 'Nenhum serviço agendado encontrado para esta empresa' });
+      }
+    } else {
+      return reply.status(404).send({ message: 'Empresa não encontrada' });
+    }
+  } catch (error) {
+    console.error(error);
+    return reply.status(500).send({ message: 'Erro ao buscar serviços agendados da empresa' });
+  }
+};
+
 module.exports = {
   createCompany,
+  getCompanyData,
+  getCompanyServices
 };

@@ -19,9 +19,13 @@ fastify.post('/login', async(request, reply) => authService.login(request, reply
 
 //Rota cadastro de clientes
 fastify.post('/user/create' , async(request , reply) => cliente.createClient(request , reply))
+fastify.get('/user/getuserinfo' , async(request , reply) => cliente.getClient(request , reply))
+fastify.get('/user/getuserservices' , async(request , reply) => cliente.getClientServices(request , reply))
 
 //Rota cadastro de empresas
 fastify.post('/company/create' , async(request , reply) => empresa.createCompany(request , reply))
+fastify.get('/company/getCompanyData' , async(request , reply) => empresa.getCompanyData(request , reply))
+fastify.get('/company/getCompanyServices' , async(request , reply) => empresa.getCompanyData(request , reply))
 
 // Rotas de serviços
 fastify.get('/services', async(request, reply) => servico.getService(request, reply))

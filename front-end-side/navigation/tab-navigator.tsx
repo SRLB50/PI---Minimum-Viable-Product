@@ -4,9 +4,8 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from "~/types/types";
 import { HeaderButton } from '../components/Template/HeaderButton';
 import { TabBarIcon } from '../components/Template/TabBarIcon';
-import One from '../screens/one';
-import Two from '../screens/two';
 import home from '~/screens/home';
+import Profile from '~/screens/profile';
 import registerServices from '~/screens/registerServices';
 
 const Tab = createBottomTabNavigator();
@@ -19,23 +18,6 @@ export default function TabLayout({ navigation }: Props) {
       screenOptions={{
         tabBarActiveTintColor: 'black',
       }}>
-      {/* <Tab.Screen
-        name="One"
-        component={One}
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
-        }}
-      />
-      <Tab.Screen
-        name="Two"
-        component={Two}
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      /> */}
       <Tab.Screen
         name='home'
         component={home}
@@ -50,6 +32,15 @@ export default function TabLayout({ navigation }: Props) {
         component={registerServices}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
+      <Tab.Screen
+        name='profile'
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
           headerShown: false,
           tabBarShowLabel: false
         }}
