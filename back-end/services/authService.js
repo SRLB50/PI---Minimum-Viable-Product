@@ -29,7 +29,7 @@ async function autenticarUsuario(email, senha) {
 		{ expiresIn: "1h" }
 	);
 
-	return { usuario, isCompany, token };
+	return { usuario, isCompany, token, userKey: usuario.cnpj || usuario.cpf };
 }
 
 async function login(req, res) {
@@ -41,9 +41,9 @@ async function login(req, res) {
 				.send({ error: "E-mail e senha são obrigatórios" });
 		}
 
-		const { usuario, isCompany, token } = await autenticarUsuario(email, senha);
+		const { usuario, isCompany, token, userKey } = await autenticarUsuario(email, senha);
 
-		return res.send({ usuario: { nome: usuario.nome, email: usuario.email, empresa: isCompany }, token });
+		return res.send({ usuario: { nome: usuario.nome, email: usuario.email, empresa: isCompany, userKey:userKey }, token });
 	} catch (error) {
 		return res
 			.status(401)

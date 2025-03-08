@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native';
 import RegisterApi from './../service/registerServices'
 import Modal from "~/components/Template/Modal"
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const jwt_decode = require('jwt-decode');
+import JWT from 'expo-jwt';
 
 type PropsAPI = {
   titulo: string
@@ -33,18 +33,12 @@ const registerServices = () => {
 
   useEffect(() => {
     const fetchUserId = async () => {
-      try {
-        const token = await AsyncStorage.getItem('token');
-        if (token) {
-          // @ts-ignore
-          const tokenDecoded: any = jwt_decode(token);
-          const pk = String(tokenDecoded?.id);
-          console.log(pk, 'pkjkkkkkkkkkk')
-          setUserPK(pk);
-        }
-      } catch (error) {
-        console.error("Erro ao decodificar o token:", error);
-      }
+      //const token = await AsyncStorage.getItem('token');
+      // const tokenDecoded: any = JWT.decode(token);
+      const userkey = await AsyncStorage.getItem('userKey');
+      console.log(userkey, 'pk')
+      if(userkey) 
+      setUserPK(userkey);
     };
 
     fetchUserId();

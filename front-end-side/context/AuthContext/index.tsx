@@ -41,10 +41,11 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
       AsyncStorage.removeItem('empresa');
       AsyncStorage.removeItem('email');
       AsyncStorage.removeItem('nome');
+      AsyncStorage.removeItem('userKey');
     }
   }, []);
 
-  const login = async (token: string, expire: string, empresa:string, email: string, nome: string) => {
+  const login = async (token: string, expire: string, empresa:string, email: string, nome: string, userKey:string) => {
 
     if (isTokenValid(expire) && token) {
 
@@ -53,7 +54,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
       await AsyncStorage.setItem('empresa', empresa);
       await AsyncStorage.setItem('email', email);
       await AsyncStorage.setItem('nome', nome);
-
+      await AsyncStorage.setItem('userKey', userKey);
       setIsAuthenticated(true);
       return true;
     }
@@ -67,6 +68,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     await AsyncStorage.removeItem('empresa');
     await AsyncStorage.removeItem('email');
     await AsyncStorage.removeItem('nome');
+    await AsyncStorage.removeItem('userKey');
     setIsAuthenticated(false);
   };
 

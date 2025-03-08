@@ -61,7 +61,8 @@ export const useAuthRequest = () => {
           response.data.token, 
           `${tomorrow}`, String(response.data.usuario.empresa), 
           response.data.usuario.email, 
-          response.data.usuario.nome
+          response.data.usuario.nome,
+          response.data.usuario.userKey
         )
       }
     } catch (error: any) {
