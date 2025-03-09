@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Servico.associate = function(models) {
-    Servico.belongsTo(models.Empresa, { foreignKey: 'empresa_id' })
+    Servico.belongsTo(models.Empresa, { foreignKey: 'empresa_id', as : "empresa" })
     Servico.hasMany(models.ServicoAgendado, { foreignKey: 'servico_id' });
   }
 
