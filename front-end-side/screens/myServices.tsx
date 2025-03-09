@@ -25,35 +25,34 @@ const servicesAPI = () => {
     data: string
     endereco: string
     titulo: string
-
   }
 
   const services: ServicesProps[] = [
     {
       status: "Finalizado",
       cliente: "Isaque Viana",
-      data: "25/02/2025 15:00",
+      data: "2025-02-25T15:00:00",  // Formato ISO 8601
       endereco: "Rua Ermelina, São Paulo - SP",
       titulo: "Arrumar Encanamento"
     },
     {
       status: "Pendente",
       cliente: "João Estevão",
-      data: "25/02/2025 15:00",
+      data: "2025-02-25T15:00:00",  // Formato ISO 8601
       endereco: "Rua José, São Paulo - SP",
       titulo: "Pintar Parede"
     },
     {
       status: "Cancelado",
       cliente: "Andressa Nunes",
-      data: "25/02/2025 17:00",
+      data: "2025-02-25T17:00:00",  // Formato ISO 8601
       endereco: "Rua Pereira, São Paulo - SP",
       titulo: "Trocar Chuveiro"
     },
     {
       status: "Cancelado",
       cliente: "André Vieira",
-      data: "25/02/2025 10:00",
+      data: "2025-02-25T10:00:00",  // Formato ISO 8601
       endereco: "Rua Osmar, São Paulo - SP",
       titulo: "Troca de Pia"
     },

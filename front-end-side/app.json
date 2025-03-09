@@ -4,9 +4,9 @@
     "slug": "front-end",
     "version": "1.0.0",
     "extra": {
-      "API_URL": "Mk5l5b4Wt38yIm0Mv90+NgbwaB4Lh9gGut68qOIe/5Uu1XPGlJqazSJdPyfESAqy2Ov0dAC5t7WoaB6lZOFyzC4djSfERHcTU5HkJSI+OVY=",
-      "API_KEY": "0870e3b4d5eee75cbf522d979d007f14a422b29a19c61a471495df2db1799960",
-      "API_IV": "4de16e70484503e548c33f35df71cc82"
+      "API_URL": "cO8vMY6r8xtJs4JQNcltcHD+Uf8naYbb0Ljbiz8JPLoC0dYd9AWSMR0Gmg72k/MFyQhnClR77KQDpQbhpivkfZCAWvDLNQmMmVG4Vb2PEYg=",
+      "API_KEY": "f4c0204f9b56356fe552044c362b512189f96b295373acb5eb2ae55f8fead1d1",
+      "API_IV": "22384117071cd5c97d9d26a702b99094"
     },
     "web": {
       "favicon": "./assets/favicon.png"
