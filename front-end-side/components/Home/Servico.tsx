@@ -21,7 +21,7 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
             case "Pendente":
                 return "#FFB947"
             default:
-                return "#2C2C2C"
+                return ""
         }
     }
 
@@ -32,14 +32,15 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
     const [hours, setHours] = useState<string>("")
 
     useEffect(() => {
-        const [date, hours] = data.split(" ")
-        const [day, month, year] = date.split("/")
+        const date = new Date(data)
+        const [day, month, year] = date.toLocaleDateString().split("/")
+        const hoursWork = date.toLocaleTimeString().split(":")[0] + date.toLocaleTimeString().split(":")[1]
 
         const monthName = new Intl.DateTimeFormat("pt-BR", {month: "long"}).format(new Date(parseInt(year), parseInt(month) - 1, parseInt(day)))
 
         setMonth(monthName.charAt(0).toUpperCase() + monthName.slice(1))
         setDay(day)
-        setHours(hours)
+        setHours(hoursWork)
     }, [])
 
     useEffect(() => setStatusColor(colorStatus(status)), [status])

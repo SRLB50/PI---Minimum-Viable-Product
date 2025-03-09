@@ -4,33 +4,51 @@ import Servico from "@components/Home/Servico";
 import { View, Text, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import ScheduledServices from './../../service/registerScheduledService'
 
-type ServicesProps = {
+type Services = {
   status: string
-  cliente: string
+  id : number
+  cliente: {
+    nome : string
+    cpf : string
+  }
   data: string
+  servico : {
+    titulo : string
+  }
   endereco: string
   titulo: string
 }
 
-type HomePrestadorProps = {
-  services: ServicesProps[]  // ✅ Agora aceita um array dinâmico
-}
-
-const HomePrestador = ({ services }: HomePrestadorProps) => {
+const HomePrestador = () => {
   const [name, setName] = useState<string | null>(null)
+  const [userPK, setUserPK] = useState<string | null>(null)
+  const [services, setServices] = useState<Services[]>([])
 
   useEffect(() => {
     const fetchCompanyData = async () => {
       const nome = await AsyncStorage.getItem('nome');
-      setName(nome != null ? nome.split(' ')[0] : nome );
+      const cnpj = await AsyncStorage.getItem("userKey")
+
+      setName(nome != null ? nome.split(' ')[0] : nome);
+      setUserPK(cnpj)
     };
 
     fetchCompanyData();
 
-
+    getMyServicesScheduledToday()
   }, []);
 
+
+
+  const getMyServicesScheduledToday = async () => {
+    const instance = new ScheduledServices.GetScheduledServices(userPK)
+
+    const servicesToday = await instance.execute()
+
+    servicesToday.success ? setServices(servicesToday.dataResult) : setServices([])
+  }
 
   return (
     <View className="container flex-1 bg-[#EDEDED]">
@@ -48,14 +66,15 @@ const HomePrestador = ({ services }: HomePrestadorProps) => {
           <ScrollView className="h-[400] mt-[5]">
 
             {
-              services.map((services, i) => (<Servico
-                status={services.status}
-                cliente={services.cliente}
-                data={services.data}
-                endereco={services.endereco}
-                titulo={services.titulo}
-                key={i}
-              />))
+              services.length > 0 ?
+                services.map((services, i) => (<Servico
+                  status={''}
+                  cliente={services.cliente.nome}
+                  data={services.data}
+                  endereco={services.endereco}
+                  titulo={services.servico.titulo}
+                  key={i}
+                />)) : <Text>Ops... Sua agenda está vazia hoje.</Text>
             }
 
           </ScrollView>
