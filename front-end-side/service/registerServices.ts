@@ -1,4 +1,4 @@
-import { url } from "./configs/config.json"
+ import { url } from "./configs/config.json"
 
 type BodyServices  = {
     titulo     : string
@@ -84,6 +84,49 @@ class GetRegister{
             return data
         } catch (error) {
             alert(error)
+        }
+    }
+}
+
+class GetAllServices{
+    constructor(){}
+
+    #getRequest() {
+        let header = new Headers();
+        header.append("Content-Type", "application/json")
+
+        const requestOptions = {
+            method: 'GET',
+            headers: header
+        };
+
+        return requestOptions
+    }
+    async execute() {
+        try {
+            const requestOptions = this.#getRequest();
+
+            const response = await fetch(`${url}/services`, requestOptions);
+
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            //console.log(result)
+            const data = {
+                success: true,
+                dataResult : result
+            };
+
+            return data;
+        } catch (error) {
+            console.error("Erro na execução:", error);
+            return {
+                success: false,
+                error: error,
+                dataResult : null
+            };
         }
     }
 }
@@ -192,5 +235,6 @@ export default {
     RegisterServices, 
     GetRegister,
     UpdateService,
-    RemoveService
+    RemoveService,
+    GetAllServices
 }
