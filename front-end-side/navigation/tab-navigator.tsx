@@ -9,6 +9,7 @@ import home from '~/screens/home';
 import Profile from '~/screens/profile';
 import registerServices from '~/screens/registerServices';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import myServices from '~/screens/myServices';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,18 +43,24 @@ export default function TabLayout({ navigation }: Props) {
           tabBarShowLabel: false
         }}
       />
-      {
-        isCompany && 
-        <Tab.Screen
-          name='register-services'
-          component={registerServices}
-          options={{
-            tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
-            headerShown: false,
-            tabBarShowLabel: false
-          }}
-        />
-      }
+      <Tab.Screen
+        name='schedule'
+        component={myServices}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
+      <Tab.Screen
+        name='register-services'
+        component={registerServices}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
       <Tab.Screen
         name='profile'
         component={Profile}
