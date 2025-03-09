@@ -140,6 +140,9 @@ const Profile = () => {
 
         {!showProfile && (
           <View>
+            <View className="mb-4" onTouchStart={() => setShowProfile(true)}>
+              <Text className="text-gray-800 font-semibold text-5xl">←</Text>
+            </View>
             <CustomInput
               name="nome"
               control={control}
