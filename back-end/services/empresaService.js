@@ -25,6 +25,7 @@ const createCompany = async (request, reply) => {
       enderecosArray.map((endereco) => ({
         entidadeId: empresa.cnpj,
         entidadeTipo: "empresa",
+        estado: endereco.estado.toUpperCase(),
         ...endereco,
       })),
       {

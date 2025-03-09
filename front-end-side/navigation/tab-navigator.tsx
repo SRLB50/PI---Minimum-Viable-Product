@@ -7,6 +7,7 @@ import { TabBarIcon } from '../components/Template/TabBarIcon';
 import home from '~/screens/home';
 import Profile from '~/screens/profile';
 import registerServices from '~/screens/registerServices';
+import myServices from '~/screens/myServices';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,15 @@ export default function TabLayout({ navigation }: Props) {
         component={home}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
+      <Tab.Screen
+        name='schedule'
+        component={myServices}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
           headerShown: false,
           tabBarShowLabel: false
         }}
