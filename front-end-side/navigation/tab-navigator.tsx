@@ -1,3 +1,4 @@
+import react, { useState, useEffect} from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 
@@ -8,15 +9,17 @@ import home from '~/screens/home';
 import Profile from '~/screens/profile';
 import registerServices from '~/screens/registerServices';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState, useEffect } from 'react';
+import myServices from '~/screens/myServices';
 
 const Tab = createBottomTabNavigator();
 
 type Props = StackScreenProps<RootStackParamList, 'TabNavigator'>;
 
 export default function TabLayout({ navigation }: Props) {
-  const [isCompany, setIsCompany] = useState<boolean | null>(null)
 
+  const [isCompany, setIsCompany] = useState<Boolean>(false)
+
+  
   useEffect(() => {
     const fetchCompanyData = async () => {
       const empresa = await AsyncStorage.getItem('empresa');
@@ -40,19 +43,24 @@ export default function TabLayout({ navigation }: Props) {
           tabBarShowLabel: false
         }}
       />
-      {
-        isCompany && (
-          <Tab.Screen
-            name='register-services'
-            component={registerServices}
-            options={{
-              tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
-              headerShown: false,
-              tabBarShowLabel: false
-            }}
-          />
-        )
-      }
+      <Tab.Screen
+        name='schedule'
+        component={myServices}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
+      <Tab.Screen
+        name='register-services'
+        component={registerServices}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
+          headerShown: false,
+          tabBarShowLabel: false
+        }}
+      />
       <Tab.Screen
         name='profile'
         component={Profile}

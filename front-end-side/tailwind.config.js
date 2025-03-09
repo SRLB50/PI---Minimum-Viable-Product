@@ -28,10 +28,14 @@ module.exports = {
         bg: '#FFFFFF',
         lightButtonText: '#2C2C2C',
         clickableText: '#9C9C9C',
+        doneTag: '#78CA25',
+        pendingTag: '##FFB947',
+        softColorText: '#8D8D8D',
+        bgMyServices: '#EDEDED',
       },
       fontFamily: {
         inter: ['Inter' , 'sans-serif']
-      }
+      },
     },
   },
   plugins: [],
