@@ -4,8 +4,8 @@ import { url } from "./configs/config.json"
 class GetScheduledServices {
 
 
-    pkCompany:string | null
-    constructor(pkCompany : string | null) {
+    pkCompany: string | null
+    constructor(pkCompany: string | null) {
         this.pkCompany = pkCompany
     }
 
@@ -30,9 +30,11 @@ class GetScheduledServices {
             }
 
             const result = await response.json();
+            console.log(result)
+            
             const data = {
                 success: true,
-                dataResult : result
+                dataResult: result
             };
             console.log(data)
             return data;
@@ -41,7 +43,7 @@ class GetScheduledServices {
             return {
                 success: false,
                 error: error,
-                dataResult : null
+                dataResult: null
             };
         }
     }

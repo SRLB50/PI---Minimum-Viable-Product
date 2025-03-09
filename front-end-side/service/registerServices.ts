@@ -75,7 +75,7 @@ class GetRegister{
     async execute() {
         try {
             const requestOptions = this.#getRequest()
-            const data = await fetch(this.pkUser ? `${url}/services?idUser=${this.pkUser}` : `${url}/services`, requestOptions)
+            const data = await fetch(this.pkUser ? `${url}/services/user?idUser=${this.pkUser}` : `${url}/services`, requestOptions)
                 .then(response => response.json())
                 .then(result => result)
                 .catch(error => error);
