@@ -34,7 +34,7 @@ const Servico = ({ status, titulo, cliente, endereco, data }: ServicoProps) => {
     useEffect(() => {
         const date = new Date(data)
         const [day, month, year] = date.toLocaleDateString().split("/")
-        const hoursWork = date.toLocaleTimeString().split(":")[0] + date.toLocaleTimeString().split(":")[1]
+        const hoursWork = `${date.toLocaleTimeString().split(":")[0]}:${date.toLocaleTimeString().split(":")[1]}`
 
         const monthName = new Intl.DateTimeFormat("pt-BR", {month: "long"}).format(new Date(parseInt(year), parseInt(month) - 1, parseInt(day)))
 

@@ -23,7 +23,7 @@ class GetScheduledServices {
         try {
             const requestOptions = this.#getRequest();
 
-            const response = await fetch(`${url}/scheduledServices?companyId=${this.pkCompany}`, requestOptions);
+            const response = await fetch(`${url}/scheduledServices/company?companyId=${this.pkCompany}`, requestOptions);
 
             if (!response.ok) {
                 throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);

@@ -12,6 +12,7 @@ type Services = {
   cliente: {
     nome : string
     cpf : string
+    endereco : string
   }
   data: string
   servico : {
@@ -25,6 +26,7 @@ const HomePrestador = () => {
   const [name, setName] = useState<string | null>(null)
   const [userPK, setUserPK] = useState<string | null>(null)
   const [services, setServices] = useState<Services[]>([])
+  const [quantServicesToday, setQuantServicesToday] = useState(0)
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -48,6 +50,7 @@ const HomePrestador = () => {
     const servicesToday = await instance.execute()
 
     servicesToday.success ? setServices(servicesToday.dataResult) : setServices([])
+    setQuantServicesToday(servicesToday.success ? servicesToday.dataResult.length : 0)
   }
 
   return (
@@ -56,9 +59,9 @@ const HomePrestador = () => {
 
       <View className="p-[25px] ">
         <View className="flex-row justify-between">
-          <Dashboard value="4" description="Serviços para Hoje" bg="bg-[#7FCCFF]" />
+          <Dashboard value={quantServicesToday} description="Serviços para Hoje" bg="bg-[#7FCCFF]" />
 
-          <Dashboard value="30" description="Atendidos no mês" bg="bg-[#2C2C2C]" />
+          <Dashboard value={quantServicesToday} description="Atendidos no mês" bg="bg-[#2C2C2C]" />
         </View>
 
         <View className="my-[25]">
@@ -68,10 +71,10 @@ const HomePrestador = () => {
             {
               services.length > 0 ?
                 services.map((services, i) => (<Servico
-                  status={''}
+                  status={'Pendente'}
                   cliente={services.cliente.nome}
                   data={services.data}
-                  endereco={services.endereco}
+                  endereco={services.cliente.endereco}
                   titulo={services.servico.titulo}
                   key={i}
                 />)) : <Text>Ops... Sua agenda está vazia hoje.</Text>
