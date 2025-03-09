@@ -15,7 +15,7 @@ async function autenticarUsuario(email, senha) {
 		}
 	}
 
-	const senhaValida = await bcrypt.compare(senha, usuario.senha);
+	const senhaValida = senha == usuario.senha //await bcrypt.compare(senha, usuario.senha);
 	if (!senhaValida) {
 		throw new Error("Senha incorreta");
 	}

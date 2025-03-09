@@ -1,8 +1,9 @@
 const models = require("./../models")
 
 class ScheduledService {
-    constructor(companyId = "") {
+    constructor(companyId = "", dataAtual) {
         this.companyId = companyId
+        this.dataAtual = dataAtual
     }
 
     get = async () => await models.ServicoAgendado.findAll({
@@ -11,7 +12,7 @@ class ScheduledService {
             {
                 model: models.Cliente,
                 as: 'cliente', 
-                attributes : ["nome", "cpf", "email"],
+                attributes : ["nome", "cpf", "email", "endereco"],
                 required: true
             },
             {
@@ -29,7 +30,7 @@ class ScheduledService {
             {
                 model: models.Cliente,
                 as: 'cliente', 
-                attributes : ["nome", "cpf", "email"],
+                attributes : ["nome", "cpf", "email", "endereco"],
                 required: true
             },
             {
@@ -40,7 +41,8 @@ class ScheduledService {
             },
         ],
         where: {
-            empresa_id: this.companyId
+            empresa_id: this.companyId,
+            data : this.dataAtual
         }
     })
 
@@ -85,7 +87,9 @@ const getAllScheduledServices = async (request, reply) => {
 
 const getScheduledServicesByCompany = async (request, reply) => {
     const { companyId } = request.query
-    const instance = new ScheduledService(companyId)
+    const actualDate = new Date().toISOString().split('T')[0]; 
+    
+    const instance = new ScheduledService(companyId, actualDate)
 
     reply.send(await instance.getCompanyServices())
 }

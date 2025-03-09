@@ -6,7 +6,17 @@ class Service {
     }
 
     async get(){
-      return await models.Servico.findAll()
+      return await models.Servico.findAll({
+        attributes: ['id', 'titulo', 'descricao', 'valor', 'empresa_id'],
+        include : [
+            {
+                model: models.Empresa,
+                as : 'empresa',
+                attributes: ["cnpj", "nome", "email", "telefone"],
+                required : true
+            }
+        ]
+      })
     }
 
     async findByPKUSer(){

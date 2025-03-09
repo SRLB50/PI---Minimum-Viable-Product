@@ -4,6 +4,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import RegisterApi from './../../service/registerServices'
 import React, { useEffect, useState } from "react"
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const registerSchema = z.object({
     serviceType: z.string().min(1, "Tipo de Serviço é Obrigatório").max(40, "Serviço Inválido"),
@@ -23,8 +24,8 @@ type ServicesFormData = z.infer<typeof registerSchema>
 type ServiceType = {
     titulo: string
     valor: number
-    id : number
-    descricao : string
+    id: number
+    descricao: string
 };
 
 
@@ -32,13 +33,24 @@ type SetServicesProps = {
     setServices: React.Dispatch<React.SetStateAction<ServiceType[]>>
     dataService: React.Dispatch<React.SetStateAction<ServiceType | undefined>>
     setModal: React.Dispatch<React.SetStateAction<boolean>>,
-    editService : ServiceType | undefined
-    remove : boolean
+    editService: ServiceType | undefined
+    remove: boolean
 };
 
 const Register = ({ setServices, setModal, dataService, editService, remove }: SetServicesProps) => {
 
-    const userPK = "00.981.551/0001-88"
+
+    const [userPK, setUserPK] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchCompanyData = async () => {
+            const cnpj = await AsyncStorage.getItem("userKey")
+            setUserPK(cnpj)
+        };
+
+        fetchCompanyData();
+
+    }, []);
 
     const {
         control,
@@ -60,20 +72,20 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
     const [edit, setEdit] = useState<ServiceType>()
     const [hasEdit, setHasEdit] = useState<boolean>(false)
 
-    
+
     useEffect(() => {
-        
+
         if (!['', undefined, null].includes(editService?.descricao)) {
             setHasEdit(true)
             setEdit(editService)
-            
+
             setValue("serviceDescription", editService?.descricao == undefined ? "" : editService?.descricao)
             setValue("serviceType", editService?.titulo == undefined ? "" : editService?.titulo)
             setValue("serviceValue", editService?.valor == undefined ? '0' : String(editService?.valor))
-        }else{
+        } else {
             setHasEdit(false)
         }
-        
+
     }, [editService])
 
     useEffect(() => {
@@ -96,7 +108,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
             titulo: serviceType,
             descricao: serviceDescription,
             valor: serviceValue,
-            idUser: userPK
+            idUser: userPK != null ? userPK : ""
         }
 
         const instance = new RegisterApi.RegisterServices(body)
@@ -105,7 +117,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
 
         const successRegister = registerServices.success
 
-        if(successRegister)  {
+        if (successRegister) {
             fetchAPI()
             setModal(true)
             dataService(registerServices)
@@ -137,7 +149,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
             titulo: serviceType,
             descricao: serviceDescription,
             valor: serviceValue,
-            idUser: userPK
+            idUser: userPK != null ? userPK : ""
         }
 
         const instance = new RegisterApi.UpdateService(body, id)
@@ -146,7 +158,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
 
         const successRegister = registerServices.success
 
-        if(successRegister)  {
+        if (successRegister) {
             fetchAPI()
             clearEdit()
             alert(registerServices.message)
@@ -154,7 +166,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
         else {
             alert("Erro ao cadastrar serviço!")
         }
-        
+
     })
 
     const clearEdit = () => {
@@ -163,12 +175,15 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
         setEdit({
             titulo: "",
             valor: 0,
-            id : 0,
-            descricao : ""
+            id: 0,
+            descricao: ""
         })
     }
 
     const fetchAPI = async () => {
+        if (userPK == null) {
+            return false
+        }
         const instance = new RegisterApi.GetRegister(userPK)
 
         const servicesData = await instance.execute()
@@ -232,7 +247,7 @@ const Register = ({ setServices, setModal, dataService, editService, remove }: S
                     control={control}
                     render={({ field: { onChange, value } }) => (
                         <TextInput
-                        {...register("serviceDescription")}
+                            {...register("serviceDescription")}
                             value={value}
                             onChangeText={onChange}
                             placeholder="Descreva o serviço"

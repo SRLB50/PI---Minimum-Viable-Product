@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 
 type DashProps = {
-  value: string
+  value: number
   description: string
   bg: string
 }
