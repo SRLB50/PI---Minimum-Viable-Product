@@ -11,6 +11,7 @@ import { UseFormSetError } from "react-hook-form"
 // Schema
 import { LoginFormData } from "../../schemas/authSchema"
 import { getApiUrl } from '~/utils/decrypt';
+import {url} from "./../../service/configs/config.json"
 
 //api
 import { useNavigation } from "@react-navigation/native";
@@ -45,7 +46,7 @@ export const useAuthRequest = () => {
       };
 
       const response = await axios.post(
-        `${apiUrl}/login`,
+        `${url}/login`,
         {
           email: data.email,
           senha: data.password,
