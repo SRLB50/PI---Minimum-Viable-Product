@@ -2,6 +2,8 @@ import Dashboard from "@components/Home/Dashboard";
 import Header from "@components/Home/Header";
 import Servico from "@components/Home/Servico";
 import { View, Text, ScrollView } from "react-native";
+import { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type ServicesProps = {
   status: string
@@ -12,13 +14,27 @@ type ServicesProps = {
 }
 
 type HomePrestadorProps = {
-    services: ServicesProps[]  // ✅ Agora aceita um array dinâmico
+  services: ServicesProps[]  // ✅ Agora aceita um array dinâmico
 }
 
-const HomePrestador = ({services}: HomePrestadorProps) => {
+const HomePrestador = ({ services }: HomePrestadorProps) => {
+  const [name, setName] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      const nome = await AsyncStorage.getItem('nome');
+      setName(nome != null ? nome.split(' ')[0] : nome );
+    };
+
+    fetchCompanyData();
+
+
+  }, []);
+
+
   return (
     <View className="container flex-1 bg-[#EDEDED]">
-      <Header />
+      <Header name={name} />
 
       <View className="p-[25px] ">
         <View className="flex-row justify-between">
@@ -41,7 +57,7 @@ const HomePrestador = ({services}: HomePrestadorProps) => {
                 key={i}
               />))
             }
-            
+
           </ScrollView>
         </View>
       </View>
