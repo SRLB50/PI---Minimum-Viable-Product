@@ -6,19 +6,21 @@ type ServicoProps = {
     titulo: string
     prestador: string
     telefone : string
-    valor : string
-    nomeCliente : string
+    valor : number
+    nomeCliente : string | null
 }
 
 
 const ServicoCliente = ({ titulo, prestador, telefone, valor, nomeCliente }: ServicoProps) => {
     
     const clickWhatsapp = () => {
+
+        const telFormatado = telefone.replace("(", "").replace(")", "").replace("-", "").trim()
         const message = `Olá ${prestador}, tudo bem? Me chamo ${nomeCliente} e tenho interesse no seu serviço de ${titulo}, com o valor aproximado de R$ ${valor}, podemos negociar?`
 
-        const url = `https://wa.me/55${telefone}?text=${message}`
+        const url = `https://wa.me/55${telFormatado}?text=${message}`
         Linking.openURL(url)
-        .then(data => console.log("Whats Aberto"))
+        .then(data => console.log("Whats Aberto: " + data))
         .catch(err => console.error(err))
 
     }
