@@ -100,6 +100,7 @@ const Cadastro = () => {
                                 control={control}
                                 label= 'CPF'
                                 placeholder= '000.000.000-00'
+                                maxLength={11}
                             />
                         :
                             <>
@@ -108,6 +109,7 @@ const Cadastro = () => {
                                     control={control}
                                     label= 'CNPJ'
                                     placeholder= '00.000.000/0000-00'
+                                    maxLength={14}
                                 />
 
                                 <CustomInput 
@@ -123,6 +125,7 @@ const Cadastro = () => {
                         control={control}
                         label= 'Telefone'
                         placeholder= '(00) 00000-0000'
+                        maxLength={11}
                     />
                     <View>
                         <CustomInput 
@@ -130,6 +133,7 @@ const Cadastro = () => {
                             control={control}
                             label= 'CEP'
                             placeholder= '00000-000'
+                            maxLength={8}
                         />
                         <View className='flex-row gap-3 w-full'>
                             <CustomInput 
