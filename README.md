@@ -18,7 +18,7 @@ Alocação de serviços domésticos: "CasaCuida".
 </ul>
 
 ## Resumo:
-<p align="justify">Desenvolvemos o CasaCuida, um aplicativo inovador de alocação de serviços domésticos que conecta clientes a fornecedores de serviços como limpeza e manutenção. O app oferece uma experiência prática e eficiente, com funcionalidades como avaliação detalhada, recomendações inteligentes e suporte a contratos digitais. Enquanto clientes encontram serviços de qualidade rapidamente, fornecedores podem gerenciar suas ofertas de forma otimizada. O projeto foi criado como um MVP, focado na validação das funcionalidades essenciais e na experiência do usuário</p>
+<p align="justify">Desenvolvemos o CasaCuida, um aplicativo inovador de alocação de serviços domésticos que conecta clientes a fornecedores de serviços como limpeza e manutenção. O app oferece uma experiência prática e eficiente, com funcionalidades como avaliação detalhada, recomendações inteligentes e suporte a contratos digitais. Enquanto clientes encontram serviços de qualidade rapidamente, fornecedores podem gerenciar suas ofertas de forma otimizada. O projeto foi criado como um MVP, focado na validação das funcionalidades essenciais e na experiência do usuário.</p>
 
 # Alocação de Serviços Domésticos: CasaCuida
 
@@ -156,8 +156,12 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
 
+<p align="justify">Para garantir a organização e eficiência no armazenamento e manipulação das informações no CasaCuida, foi desenvolvida uma modelagem de banco de dados alinhada aos requisitos do MVP. O Modelo Entidade-Relacionamento (MER) apresentado a seguir ilustra a estrutura das tabelas e seus relacionamentos, garantindo que as operações de cadastro, agendamento e gerenciamento de serviços sejam realizadas de forma consistente e escalável.</p>
+
 
 ![Modelo Entidade-Relacionamento]![MER](https://github.com/user-attachments/assets/7b9eef13-decc-4ff2-a782-4589c3f0d67b)
+
+<p align="justify">Essa modelagem foi projetada para atender às necessidades dos usuários, permitindo que clientes possam contratar serviços de forma intuitiva, enquanto os prestadores têm controle sobre os serviços oferecidos.</p>
 
 
 ______________________________________________________________________________________________________________________________________
