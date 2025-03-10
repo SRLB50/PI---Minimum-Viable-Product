@@ -159,7 +159,7 @@ A primeira versão do MVP foca nas funcionalidades principais:
 <p align="justify">Para garantir a organização e eficiência no armazenamento e manipulação das informações no CasaCuida, foi desenvolvida uma modelagem de banco de dados alinhada aos requisitos do MVP. O Modelo Entidade-Relacionamento (MER) apresentado a seguir ilustra a estrutura das tabelas e seus relacionamentos, garantindo que as operações de cadastro, agendamento e gerenciamento de serviços sejam realizadas de forma consistente e escalável.</p>
 
 
-![Modelo Entidade-Relacionamento]![MER](https://github.com/user-attachments/assets/7b9eef13-decc-4ff2-a782-4589c3f0d67b)
+[MER - Modelo Entidade-Relacionamento]![MER](https://github.com/user-attachments/assets/7b9eef13-decc-4ff2-a782-4589c3f0d67b)
 
 <p align="justify">Essa modelagem foi projetada para atender às necessidades dos usuários, permitindo que clientes possam contratar serviços de forma intuitiva, enquanto os prestadores têm controle sobre os serviços oferecidos.</p>
 
