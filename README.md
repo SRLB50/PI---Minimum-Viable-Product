@@ -158,7 +158,7 @@ A primeira versão do MVP foca nas funcionalidades principais:
 
 ______________________________________________________________________________________________________________________________________
 
-[Link do FIGMA]
+[Link da Landing Page](https://github.com/JeCarlos7713/landing-page-casa-cuida)
 
 <li><strong>Para baixar este projeto no <a href="https://github.com/SRLB50/PI---Minimum-Viable-Product">Github</a></strong>, https://github.com/SRLB50/PI---Minimum-Viable-Product</li>
 [Link do FIGMA][(https://www.figma.com/proto/TsiFfBjaPVm99VrjS8Pzur/App---CasaCuida?node-id=2001-22&t=l5VAuCgwxlg5amPq-1&scaling=min-zoom&content-scaling=fixed&page-id=2001%3A13&starting-point-node-id=2001%3A14](https://www.figma.com/design/TsiFfBjaPVm99VrjS8Pzur/App---CasaCuida?node-id=2001-13&p=f)](https://www.figma.com/design/TsiFfBjaPVm99VrjS8Pzur/App---CasaCuida?node-id=2001-13&p=f)
