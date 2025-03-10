@@ -156,6 +156,10 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
 
+
+![Modelo Entidade-Relacionamento]![MER](https://github.com/user-attachments/assets/7b9eef13-decc-4ff2-a782-4589c3f0d67b)
+
+
 ______________________________________________________________________________________________________________________________________
 
 [Link da Landing Page](https://jecarlos7713.github.io/landing-page-casa-cuida/)
