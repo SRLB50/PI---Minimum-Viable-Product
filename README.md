@@ -119,19 +119,16 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 
 ## Desenvolvimento de Personas e Jornada de usuários:
 
-- **Roberto da Silva** (Cliente): 35 anos, gerente de projetos, solteiro, mora sozinho em apartamento precisa de ajuda com limpeza semanal. Alta exigência por serviços de qualidade, rotina agitada. Pretende contratar serviços domésticos de forma rápida e segura.
+- **Jean da Silva** (Cliente): 35 anos, gerente de TI, mora sozinho e precisa de ajuda com limpeza semanal. Alta exigência por serviços de qualidade, rotina agitada. Pretende contratar serviços domésticos de forma rápida e segura.
     - Necessidade: contratar serviços confiáveis semanalmente.
     - Motivação: Ter mais tempo para o lazer.
-- **Juliana Trindade** (Empresa): 47 anos, casada, mãe de dois filhos, é proprietária de uma empresa de limpeza.
+- **Tyson Trindade** (Empresa/Prestador de serviço): 37 anos, casado, presta diversos tipos de serviços.
     - Necessidade: Quer ampliar sua base de clientes e otimizar a gestão dos serviços.
     - Motivação: Crescer no mercado e ter uma plataforma confiável para captar clientes.
-- **Maria Silva** (Âutônoma): 35 anos, solteira, mãe de três filhos, trabalha como diarista a 10 anos, depende da renda de seus serviços para sustentar sua família. Ela é dedicada, pontual e conhecida entre seus clientes pela atenção aos detalhes. No entanto, tem dificuldade em atrair novos clientes por falta de visibilidade e contatos. Seu acesso à tecnologia é limitado, mas ela utiliza o celular diariamente para WhatsApp e redes sociais.
-    - Necessidade: Ampliar base de clientes para garantir estabilidade financeira, agendar e organizar melhor os serviços, evitando conflitos de horários. Receber pagamentos de forma prática e segura.
-    - Motivação: Usar avaliações no app para se destacar e fortalecer sua credibilidade no mercado.
 
 ### Jornada do Usuário
-- **Cliente**: Entra no app --> Pesquisa por "serviços de faxina" --> Faz cadastro --> Seleciona o profissional com base em avaliações e preço do serviço --> Agenda o serviço e faz o pagamento.
-- **Empresa**: Entra no app --> Faz Cadastro --> Faz login --> Cadastra novos serviços --> Recebe e gerencia agendamentos --> Confirma solicitações de serviço --> Realiza o serviço --> Recebe pagamento diretamente do cliente --> Verifica avaliações e responde a comentários.
+- **Cliente**: Entra no app --> Faz cadastro e Login --> Pesquisa por "serviços disponíveis" --> Seleciona o profissional com base em tipo de serviço e valor --> Agenda o serviço e faz contato com o prestador pelo whatsapp.
+- **Empresa**: Entra no app --> Faz Cadastro e login --> Cadastra novos serviços / atualiza ou exclui serviços --> Recebe e gerencia agendamentos --> Confirma solicitações de serviço --> Realiza o serviço.
 
 ## Protótipo para validar a navegação do produto proposto:
 
