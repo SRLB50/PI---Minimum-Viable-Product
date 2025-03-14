@@ -29,7 +29,7 @@ Alocação de serviços domésticos: "CasaCuida".
 
 Clientes finais (contratam serviços), fornecedores (ampliam visibilidade), equipe de desenvolvimento, investidores e administradores da plataforma.
 Diferenciais do CasaCuida:
-1. Especialização: Foco exclusivo em serviços domésticos.
+1. Especialização: Foco exclusivo em tarefas domésticas e serviços gerais.
 2. Usabilidade: Interface intuitiva e navegação inclusiva.
 3. Conexão local: Promove economia de bairro com recomendações personalizadas.
 4. Modelo sustentável: Taxas reduzidas e/ou assinatura diretamente com o fornecedor.
@@ -41,8 +41,8 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 ### **Diferenciais e Inovações**:
 - Sistema de avaliação detalhada.
 - Recomendações inteligentes baseadas no histórico do usuário.
-- Planos de assinatura para empresas com funcionalidades exclusivas.
 - Suporte para contratos e garantias direto com o fornecedor.
+- Comunicação com fornecedor pelo número cadastrado no whatsapp.
 
 ## Funcionalidades
 ### **Usuário Cliente**:
@@ -55,10 +55,12 @@ Esses fatores posicionam o CasaCuida como uma solução confiável, acessível e
 - Cadastro e Login.
 - Gerenciamento de serviços: cadastrar, editar e excluir serviços.
 - Visualização e gerenciamento de serviços agendados.
+- Contato via whatsapp.
 
 ## Tecnologias Utilizadas
 - **Frontend**: React Native
 - **Backend**: Node.js
+- **Postgress**: Banco de Dados.
 
 ## Estrutura do Projeto
 ### Telas:
@@ -142,7 +144,7 @@ Esse protótipo simula as principais funcionalidades do aplicativo, como cadastr
 Esses testes não apenas confirmaram a eficiência da navegação proposta, mas também forneceram insights valiosos para aprimoramentos antes da implementação final. Com isso, garantimos uma base sólida para o desenvolvimento do CasaCuida.</p>
 
 ## MVP - Produto Mínimo Viável
-A primeira versão do MVP foca nas funcionalidades principais:
+A versão do MVP foca nas funcionalidades principais:
 - Cadastro/Login de usuários (empresa/cliente).
 - Listagem e busca de serviços.
 - Agendamento/Cancelamento e gerenciamento de serviços.
@@ -153,7 +155,7 @@ A primeira versão do MVP foca nas funcionalidades principais:
 - Integrar o backend ao frontend.
 - Realizar testes com o protótipo e ajustar com base no feedback.
 
-<p align="justify">Para garantir a organização e eficiência no armazenamento e manipulação das informações no CasaCuida, foi desenvolvida uma modelagem de banco de dados alinhada aos requisitos do MVP. O Modelo Entidade-Relacionamento (MER) apresentado a seguir ilustra a estrutura das tabelas e seus relacionamentos, garantindo que as operações de cadastro, agendamento e gerenciamento de serviços sejam realizadas de forma consistente e escalável.</p>
+<p align="justify">Para garantir a organização e eficiência no armazenamento e manipulação das informações no CasaCuida, foi desenvolvida uma modelagem de banco de dados alinhada aos requisitos do MVP, nesse caso, utilizamos o Postgress. O Modelo Entidade-Relacionamento (MER) apresentado a seguir ilustra a estrutura das tabelas e seus relacionamentos, garantindo que as operações de cadastro, agendamento e gerenciamento de serviços sejam realizadas de forma consistente e escalável.</p>
 
 
 [MER - Modelo Entidade-Relacionamento]![MER](https://github.com/user-attachments/assets/7b9eef13-decc-4ff2-a782-4589c3f0d67b)
